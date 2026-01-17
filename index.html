@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eduard Joseph Magno | Portfolio</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --border: #e5e7eb;
+    }
+
+    body.dark {
+      --bg: #0f172a;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --border: #1e293b;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .wrapper {
+      max-width: 880px;
+      margin: auto;
+      padding: 48px 24px;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 64px;
+      animation: slideDown 0.8s ease forwards;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin: 0;
+      letter-spacing: -0.03em;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .toggle {
+      background: none;
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      color: var(--text);
+      font-size: 0.9rem;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .toggle:hover {
+      transform: scale(1.05);
+      background: var(--border);
+    }
+
+    section {
+      margin-bottom: 56px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s ease forwards;
+      animation-delay: 0.2s;
+    }
+
+    section:nth-of-type(2) { animation-delay: 0.3s; }
+    section:nth-of-type(3) { animation-delay: 0.4s; }
+    section:nth-of-type(4) { animation-delay: 0.5s; }
+    section:nth-of-type(5) { animation-delay: 0.6s; }
+
+    h2 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    p {
+      line-height: 1.7;
+      color: var(--text);
+      max-width: 720px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .skill:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .job {
+      border-left: 2px solid var(--border);
+      padding-left: 20px;
+      margin-bottom: 32px;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .job:hover {
+      border-color: var(--accent);
+    }
+
+    .job h3 {
+      margin: 0;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .arrow {
+      font-size: 1.1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .job.open .arrow {
+      transform: rotate(180deg);
+    }
+
+    .job span {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .job-details {
+      margin-top: 12px;
+      padding-left: 18px;
+      color: var(--muted);
+      display: none;
+    }
+
+    ul {
+      margin-top: 10px;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <div>
+        <h1>Eduard Joseph Magno</h1>
+        <p>Software Engineer · SQL & Database · Technical Support</p>
+      </div>
+      <button class="toggle" onclick="toggleDarkMode()">🌙</button>
+    </header>
+
+    <section>
+      <h2>About</h2>
+      <p>
+        Dedicated Software Engineer with experience implementing enterprise systems such as dHRIS V2.
+        Strong background in SQL, technical support, and cross‑functional collaboration. Focused on
+        building reliable systems and delivering clear solutions to both technical and non‑technical users.
+      </p>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill">SQL & Database Management</div>
+        <div class="skill">Stored Procedures</div>
+        <div class="skill">Technical Support</div>
+        <div class="skill">Project Documentation</div>
+        <div class="skill">Customer Service</div>
+        <div class="skill">Keyword Research (SEO)</div>
+        <div class="skill">Excel</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+
+      <div class="job" onclick="toggleJob(this)">
+        <h3>Software Engineer <span class="arrow">⮟</span></h3>
+        <span>Delsan Office System Corporation · Mar 2024 – Present</span>
+        <ul class="job-details">
+          <li>Implemented and supported dHRIS V2 enterprise system</li>
+          <li>Handled technical inquiries and system issue resolution</li>
+          <li>Maintained documentation and project updates</li>
+          <li>Collaborated with developers and sales teams</li>
+        </ul>
+      </div>
+
+      <div class="job" onclick="toggleJob(this)">
+        <h3>Software Engineer <span class="arrow">⮟</span></h3>
+        <span>EastWest Corporation · Jun 2023 – Dec 2023</span>
+        <ul class="job-details">
+          <li>Supported internal systems and transaction workflows</li>
+          <li>Provided technical and customer-facing problem resolution</li>
+          <li>Ensured accuracy and compliance in system operations</li>
+        </ul>
+      </div>
+
+      <div class="job" onclick="toggleJob(this)">
+        <h3>Software Engineer <span class="arrow">⮟</span></h3>
+        <span>Prime Technology · Mar 2023 – May 2023</span>
+        <ul class="job-details">
+          <li>Developed SQL scripts and stored procedures</li>
+          <li>Worked with SQL Server and Sybase databases</li>
+          <li>Collaborated with teams to deliver data solutions</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <p><strong>BS Computer Engineering</strong> — Universidad de Manila</p>
+      <p><strong>ICT</strong> — Arellano University</p>
+    </section>
+
+    <footer>
+      Manila, Philippines · 
+      <a href="mailto:edmagno055@gmail.com">edmagno055@gmail.com</a> · 
+      <a href="https://www.linkedin.com/in/eduard-joseph-magno-38396b242/" target="_blank">LinkedIn</a>
+    </footer>
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+
+    function toggleJob(job) {
+      const details = job.querySelector('.job-details');
+      const isOpen = job.classList.contains('open');
+
+      document.querySelectorAll('.job').forEach(j => {
+        j.classList.remove('open');
+        j.querySelector('.job-details').style.display = 'none';
+      });
+
+      if (!isOpen) {
+        job.classList.add('open');
+        details.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
