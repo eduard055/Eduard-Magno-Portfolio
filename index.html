@@ -27,7 +27,27 @@
       background: var(--bg);
       color: var(--text);
       transition: background 0.3s, color 0.3s;
+      position: relative;
     }
+
+    /* Permanent side borders */
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      width: 100px;
+      height: 100vh;
+    }
+
+    body::before {
+      left: 150;
+    }
+
+    body::after {
+      right: 100;
+    }
+    
 
     .wrapper {
       max-width: 880px;
@@ -72,18 +92,18 @@
     .slider {
       position: absolute;
       inset: 0;
-      background: var(--border);
+      background: var(--bg);
       border-radius: 999px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, border-color 0.3s ease;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 6px;
       box-sizing: border-box;
       font-size: 0.8rem;
+      border: 1.5px solid var(--border);
     }
-
     .slider::before {
       content: "";
       position: absolute;
@@ -105,7 +125,8 @@
     }
 
     input:checked + .slider {
-      background: var(--accent);
+      background: var(--bg);
+      border-color: var(--accent);
     }
 
     input:checked + .slider::before {
@@ -244,7 +265,12 @@
     <header>
       <div>
         <h1>Eduard Joseph Magno</h1>
-        <p>Software Engineer · SQL & Database · Technical Support</p>
+        <p>Software Engineer · SQL & Database · Technical Support</p><br>
+
+          <strong>Contact Details</strong><br>
+      <a href="mailto:edmagno055@gmail.com"> <strong>· Gmail</a> 
+      <a href="https://www.linkedin.com/in/eduard-joseph-magno-38396b242/" target="_blank">·  Linkedln </a> </strong>
+
       </div>
       <label class="theme-switch">
         <input type="checkbox" onchange="toggleDarkMode(this)">
@@ -319,9 +345,7 @@
     </section>
 
     <footer>
-      Manila, Philippines · 
-      <a href="mailto:edmagno055@gmail.com">edmagno055@gmail.com</a> · 
-      <a href="https://www.linkedin.com/in/eduard-joseph-magno-38396b242/" target="_blank">LinkedIn</a>
+
     </footer>
   </div>
 
