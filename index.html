@@ -1,373 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eduard Joseph Magno | Portfolio</title>
+  <meta charset="UTF-8">
+  <title>Resume - Eduard Joseph Magno</title>
   <style>
-    :root {
-      --bg: #ffffff;
-      --text: #111827;
-      --muted: #6b7280;
-      --accent: #2563eb;
-      --border: #e5e7eb;
-    }
-
-    body.dark {
-      --bg: #0f172a;
-      --text: #e5e7eb;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
-      --border: #1e293b;
-    }
-
     body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      transition: background 0.3s, color 0.3s;
-      position: relative;
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+      background-color: #121212; /* Dark mode default */
+      color: #e0e0e0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    h1, h2 { color: #e0e0e0; }
+    h1 { border-bottom: 2px solid #e0e0e0; padding-bottom: 5px; }
+    ul { margin: 0; padding-left: 20px; }
+    .section { margin-bottom: 25px; }
+
+    /* Toggle button */
+    #toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 8px 12px;
+      background: #e0e0e0;
+      color: #121212;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1001;
     }
 
-    /* Permanent side borders */
-    body::before,
-    body::after {
-      content: "";
+    /* Burger menu button */
+    #burger-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+      color: #e0e0e0;
+    }
+
+    /* Sidebar menu */
+    .sidebar {
+      height: 100%;
+      width: 0;
       position: fixed;
       top: 0;
-      width: 100px;
-      height: 100vh;
+      left: 0;
+      background-color: #2c3e50;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 1000;
     }
-
-    body::before {
-      left: 150;
-    }
-
-    body::after {
-      right: 100;
-    }
-    
-
-    .wrapper {
-      max-width: 880px;
-      margin: auto;
-      padding: 48px 24px;
-      animation: fadeIn 0.8s ease forwards;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 64px;
-      animation: slideDown 0.8s ease forwards;
-    }
-
-    header h1 {
-      font-size: 2.2rem;
-      margin: 0;
-      letter-spacing: -0.03em;
-    }
-
-    header p {
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .theme-switch {
-      position: relative;
-      width: 52px;
-      height: 26px;
-      display: inline-block;
-    }
-
-    .theme-switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    .slider {
-      position: absolute;
-      inset: 0;
-      background: var(--bg);
-      border-radius: 999px;
-      cursor: pointer;
-      transition: background 0.3s ease, border-color 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 6px;
-      box-sizing: border-box;
-      font-size: 0.8rem;
-      border: 1.5px solid var(--border);
-    }
-    .slider::before {
-      content: "";
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: var(--bg);
-      border-radius: 50%;
-      left: 3px;
-      transition: transform 0.3s ease;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
-    }
-
-    .slider .sun {
-      color: #f59e0b;
-    }
-
-    .slider .moon {
-      color: #0f172a;
-    }
-
-    input:checked + .slider {
-      background: var(--bg);
-      border-color: var(--accent);
-    }
-
-    input:checked + .slider::before {
-      transform: translateX(26px);
-    }
-
-    section {
-      margin-bottom: 56px;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 0.8s ease forwards;
-      animation-delay: 0.2s;
-    }
-
-    section:nth-of-type(2) { animation-delay: 0.3s; }
-    section:nth-of-type(3) { animation-delay: 0.4s; }
-    section:nth-of-type(4) { animation-delay: 0.5s; }
-    section:nth-of-type(5) { animation-delay: 0.6s; }
-
-    h2 {
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      margin-bottom: 20px;
-    }
-
-    p {
-      line-height: 1.7;
-      color: var(--text);
-      max-width: 720px;
-    }
-
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .skill {
-      border: 1px solid var(--border);
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      color: var(--muted);
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-
-    .skill:hover {
-      transform: translateY(-3px);
-      border-color: var(--accent);
-    }
-
-    .job {
-      border-left: 2px solid var(--border);
-      padding-left: 20px;
-      margin-bottom: 32px;
-      cursor: pointer;
-      transition: border-color 0.2s ease, background 0.2s ease;
-    }
-
-    .job:hover {
-      border-color: var(--accent);
-    }
-
-    .job h3 {
-      margin: 0;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .arrow {
-      font-size: 1.1rem;
-      transition: transform 0.3s ease;
-    }
-
-    .job.open .arrow {
-      transform: rotate(180deg);
-    }
-
-    .job span {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .job-details {
-      margin-top: 12px;
-      padding-left: 18px;
-      color: var(--muted);
-      display: none;
-    }
-
-    ul {
-      margin-top: 10px;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding-top: 24px;
-      color: var(--muted);
-      font-size: 0.85rem;
-      animation: fadeIn 1s ease forwards;
-    }
-
-    a {
-      color: var(--accent);
+    .sidebar a {
+      padding: 10px 20px;
       text-decoration: none;
+      font-size: 18px;
+      color: #fff;
+      display: block;
+      transition: 0.2s;
     }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .sidebar a:hover { background-color: #34495e; }
+    .sidebar .closebtn {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 30px;
+      color: #fff;
+      cursor: pointer;
     }
   </style>
 </head>
-<body>
-  <div class="wrapper">
-    <header>
-      <div>
-        <h1>Eduard Joseph Magno</h1>
-        <p>Software Engineer · SQL & Database · Technical Support</p><br>
+<body class="dark-mode">
 
-          <strong>Contact Details</strong><br>
-      <a href="mailto:edmagno055@gmail.com"> <strong>· Gmail</a> 
-      <a href="https://www.linkedin.com/in/eduard-joseph-magno-38396b242/" target="_blank">·  Linkedln </a> </strong>
+  <!-- Burger Menu Button -->
+  <button id="burger-btn">&#9776;</button>
 
-      </div>
-      <label class="theme-switch">
-        <input type="checkbox" onchange="toggleDarkMode(this)">
-        <span class="slider">
-          <span class="sun">☀</span>
-          <span class="moon">🌙</span>
-        </span>
-      </label>
-    </header>
+  <!-- Dark Mode Toggle -->
+  <button id="toggle-btn">Switch to Light Mode</button>
 
-    <section>
-      <h2>About</h2>
-      <p>
-        Dedicated Software Engineer with experience implementing enterprise systems such as dHRIS V2.
-        Strong background in SQL, technical support, and cross‑functional collaboration. Focused on
-        building reliable systems and delivering clear solutions to both technical and non‑technical users.
-      </p>
-    </section>
+  <!-- Sidebar -->
+ <!-- Sidebar -->
+<div id="mySidebar" class="sidebar">
+  <span class="closebtn" onclick="closeNav()">&times;</span>
 
-    <section>
-      <h2>Skills</h2>
-      <div class="skills">
-        <div class="skill">SQL & Database Management</div>
-        <div class="skill">Stored Procedures</div>
-        <div class="skill">Technical Support</div>
-        <div class="skill">Project Documentation</div>
-        <div class="skill">Customer Service</div>
-        <div class="skill">Keyword Research (SEO)</div>
-        <div class="skill">Excel</div>
-      </div>
-    </section>
+  <!-- Professional Photo -->
+  <img src="C:\Users\Ej\Downloads\Number_2-modified-removebg-preview.png" 
+       alt="Professional Photo of Eduard Joseph Magno" 
+       class="sidebar-photo">
 
-    <section>
-      <h2>Experience</h2>
+  <a href="#">📍 Philippines (Remote, flexible)</a>
+  <a href="mailto:edmagno055@gmail.com">✉️ edmagno055@gmail.com</a>
+  <a href="viber://chat?number=+639284653710">📞 +63-XXX-XXX-XXXX (Viber)</a>
+  <a href="https://www.linkedin.com/in/eduard-joseph-magno-38396b242/" target="_blank">💻 LinkedIn</a>
+</div>
 
-      <div class="job" onclick="toggleJob(this)">
-        <h3>Software Engineer <span class="arrow">⮟</span></h3>
-        <span>Delsan Office System Corporation · Mar 2024 – Jan 2026</span>
-        <ul class="job-details">
-          <li>Implemented and supported dHRIS V2 enterprise system</li>
-          <li>Handled technical inquiries and system issue resolution</li>
-          <li>Maintained documentation and project updates</li>
-          <li>Collaborated with developers and sales teams</li>
-        </ul>
-      </div>
+<style>
+  .sidebar-photo {
+    display: block;
+    margin: 0 auto 20px auto; /* centers the photo */
+    width: 120px;             /* adjust size */
+    height: 120px;
+    border-radius: 50%;       /* circular photo */
+    object-fit: cover;        /* crops nicely */
+    border: 3px solid #fff;   /* white border for contrast */
+  }
+</style>
 
-      <div class="job" onclick="toggleJob(this)">
-        <h3>Bank Teller <span class="arrow">⮟</span></h3>
-        <span>EastWest Corporation · Jun 2023 – Dec 2023</span>
-        <ul class="job-details">
-          <li>Supported internal systems and transaction workflows</li>
-          <li>Provided technical and customer-facing problem resolution</li>
-          <li>Ensured accuracy and compliance in system operations</li>
-        </ul>
-      </div>
 
-      <div class="job" onclick="toggleJob(this)">
-        <h3>SQL Scripter <span class="arrow">⮟</span></h3>
-        <span>Prime Technology · Mar 2023 – May 2023</span>
-        <ul class="job-details">
-          <li>Developed SQL scripts and stored procedures</li>
-          <li>Worked with SQL Server and Sybase databases</li>
-          <li>Collaborated with teams to deliver data solutions</li>
-        </ul>
-      </div>
-    </section>
+  <h1>Eduard Joseph Magno</h1>
 
-    <section>
-      <h2>Education</h2>
-      <p><strong>Bachelor of Science in Computer Engineering</strong> — Universidad de Manila — YR 2018-2022 </p>
-      <p><strong>Information Computer Technology</strong> — Arellano University — YR 2016-2018 </p>
-    </section>
+  <div class="section">
+    <h2>Professional Summary</h2>
+    <p>
+      I’m Eduard Joseph Magno, a Computer Engineering graduate with hands-on experience in 
+      <strong>software testing, QA, and operational support</strong>. Skilled in 
+      <strong>manual and automated testing, debugging, documentation, and API testing</strong>, 
+      with a strong foundation in <strong>web and mobile development (Java, JavaScript, SQL, HTML, CSS)</strong> 
+      and <strong>SEO optimization</strong>. Adept at using <strong>SaaS tools (ClickUp, Trello, Notion)</strong> 
+      to streamline workflows and improve efficiency. Known for clear communication, adaptability, and attention to detail, 
+      I thrive in remote collaboration and am seeking a role in QA, support, SEO, or software engineering where I can contribute 
+      technical expertise and grow professionally.
+    </p>
+  </div>
 
-    <footer>
+  <div class="section">
+    <h2>Core Skills</h2>
+    <ul>
+      <li>Software Testing & QA (manual & automated)</li>
+      <li>Debugging & Documentation</li>
+      <li>Web & Mobile Development (Java, JavaScript, SQL, HTML, CSS)</li>
+      <li>SEO & Content Optimization</li>
+      <li>API Testing (Postman, browser dev tools)</li>
+      <li>Workflow Management (ClickUp, Trello, Notion)</li>
+      <li>Clear Written English & Professional Communication</li>
+      <li>Financial Workflow Management (PayPal, GCash, Binance)</li>
+      <li>Transcription & English Comprehension Accuracy</li>
+    </ul>
+  </div>
 
-    </footer>
+  <div class="section">
+    <h2>Professional Experience</h2>
+    <h3>Software Engineer and Quality Assurance</h3>
+    <p><em>Full time</em></p>
+    <ul>
+      <li>Conducted manual and automated testing to ensure product reliability.</li>
+      <li>Debugged and documented issues, providing clear feedback to developers.</li>
+      <li>Performed API testing using Postman and browser developer tools.</li>
+      <li>Collaborated remotely with teams, ensuring smooth communication and workflow.</li>
+    </ul>
+
+    <h3>SEO & Digital Content Optimization</h3>
+    <p><em>Freelance / Project-based</em></p>
+    <ul>
+      <li>Optimized website content for improved search visibility.</li>
+      <li>Applied keyword research and analytics to boost engagement.</li>
+      <li>Coordinated with clients to align SEO strategies with business goals.</li>
+    </ul>
+
+    <h3>Customer Service & Technical Support</h3>
+    <p><em>Previous role</em></p>
+    <ul>
+      <li>Assisted clients with technical troubleshooting and workflow issues.</li>
+      <li>Provided clear, professional communication in English across platforms.</li>
+      <li>Documented solutions and optimized processes for efficiency.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Education</h2>
+    <p><strong>Bachelor of Science in Computer Engineering</strong><br>
+    Universidad de Manila | 2018–2022</p>
+  </div>
+
+  <div class="section">
+    <h2>Additional Strengths</h2>
+    <ul>
+      <li>Strong adaptability in remote work environments</li>
+      <li>Detail-oriented and results-driven mindset</li>
+      <li>Commitment to continuous learning and professional growth</li>
+    </ul>
   </div>
 
   <script>
-    function toggleDarkMode(el) {
-      document.body.classList.toggle('dark', el.checked);
-    }
+    // Dark mode toggle
+    const toggleBtn = document.getElementById('toggle-btn');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggleBtn.textContent = 
+        document.body.classList.contains('dark-mode') 
+        ? 'Switch to Light Mode' 
+        : 'Switch to Dark Mode';
+    });
 
-    function toggleJob(job) {
-      const details = job.querySelector('.job-details');
-      const isOpen = job.classList.contains('open');
+    // Burger menu functions
+    const sidebar = document.getElementById("mySidebar");
+    const burgerBtn = document.getElementById("burger-btn");
 
-      document.querySelectorAll('.job').forEach(j => {
-        j.classList.remove('open');
-        j.querySelector('.job-details').style.display = 'none';
-      });
+    burgerBtn.addEventListener("click", () => {
+      sidebar.style.width = "250px";
+    });
 
-      if (!isOpen) {
-        job.classList.add('open');
-        details.style.display = 'block';
-      }
+    function closeNav() {
+      sidebar.style.width = "0";
     }
   </script>
+
 </body>
 </html>
