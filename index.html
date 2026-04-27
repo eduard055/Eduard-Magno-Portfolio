@@ -4,11 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Eduard Joseph Magno</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -33,7 +38,7 @@
     }
 
     body.light-mode a {
-      color: #0066cc;
+      color: #00d4ff;
     }
 
     .container {
@@ -44,14 +49,51 @@
     }
 
     h1, h2 { color: #e0e0e0; }
-    h1 { border-bottom: 2px solid #e0e0e0; padding-bottom: 10px; margin-bottom: 20px; font-size: 2.5em; }
-    h2 { margin-top: 25px; margin-bottom: 15px; font-size: 1.5em; }
+    h1 { border-bottom: none; padding-bottom: 0; margin-bottom: 0; font-size: 2.5em; }
+    h2 { margin-top: 0; margin-bottom: 15px; font-size: 1.5em; }
     h3 { margin-top: 15px; margin-bottom: 8px; font-size: 1.1em; }
 
     ul { margin: 10px 0; padding-left: 20px; }
     li { margin: 8px 0; }
 
-    .section { margin-bottom: 30px; }
+    .section {
+      margin-bottom: 0;
+      padding: 100px 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .section h2 {
+      font-size: 2.5em;
+      margin-bottom: 40px;
+      color: #00d4ff;
+    }
+
+    .section p {
+      font-size: 1.05em;
+      line-height: 1.8;
+      color: #b0bec5;
+      margin-bottom: 20px;
+    }
+
+    .section h3 {
+      font-size: 1.4em;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      color: #e0e0e0;
+    }
+
+    .section ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    .section li {
+      margin-bottom: 10px;
+      color: #b0bec5;
+    }
 
     /* Toggle button */
     #toggle-btn {
@@ -130,27 +172,36 @@
     .skills-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 15px;
-      margin-top: 10px;
+      gap: 30px;
+      margin-top: 30px;
     }
 
     .skill-category {
-      background-color: rgba(255,255,255,0.05);
-      padding: 12px;
-      border-radius: 5px;
+      background-color: rgba(0, 212, 255, 0.08);
+      padding: 25px;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      transition: all 0.3s ease;
     }
 
-    body.light-mode .skill-category {
-      background-color: rgba(0,0,0,0.05);
+    .skill-category:hover {
+      background-color: rgba(0, 212, 255, 0.12);
+      border-color: rgba(0, 212, 255, 0.4);
+      transform: translateY(-5px);
     }
 
     .skill-category h4 {
-      margin-bottom: 8px;
-      color: #64b5f6;
+      color: #00d4ff;
+      margin-bottom: 15px;
+      font-size: 1.1em;
+    }
+
+    body.light-mode .skill-category {
+      background-color: rgba(0, 212, 255, 0.05);
     }
 
     body.light-mode .skill-category h4 {
-      color: #0066cc;
+      color: #00d4ff;
     }
 
     .skill-category ul {
@@ -159,113 +210,455 @@
     }
 
     .skill-category li {
-      margin: 5px 0;
-      padding-left: 15px;
+      margin: 12px 0;
+      padding: 0;
       position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #b0bec5;
     }
 
     .skill-category li:before {
-      content: "▸";
-      position: absolute;
+      display: none;
+    }
+
+    .skill-icon {
+      width: 24px;
+      text-align: center;
+      color: #00d4ff;
+      font-size: 1.2em;
+      flex-shrink: 0;
+    }
+
+    /* Header Navigation */
+    header {
+      background-color: #121212;
+      padding: 20px 40px;
+      position: fixed;
+      top: 0;
       left: 0;
+      right: 0;
+      z-index: 999;
+      border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+    }
+
+    body.light-mode header {
+      background-color: #f5f5f5;
+      border-bottom-color: rgba(0, 212, 255, 0.2);
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #00d4ff;
+      text-decoration: none;
+      letter-spacing: 2px;
+    }
+
+    body.light-mode .logo {
+      color: #00d4ff;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #b0bec5;
+      transition: all 0.3s ease;
+      font-size: 15px;
+      position: relative;
+      padding: 5px 0;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #00d4ff, #0099bb);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00d4ff;
+      transform: translateY(-2px);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    body.light-mode nav a {
+      color: #666;
+    }
+
+    body.light-mode nav a:hover {
+      color: #00d4ff;
+    }
+
+    nav a span.number {
+      color: #00d4ff;
+      font-weight: bold;
+      margin-right: 8px;
+      background: rgba(0, 212, 255, 0.1);
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+
+    body.light-mode nav a span.number {
+      color: #00d4ff;
+      background: rgba(0, 212, 255, 0.08);
+    }
+
+    .resume-btn {
+      border: 2px solid #00d4ff;
+      padding: 8px 20px;
+      border-radius: 4px;
+      color: #00d4ff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .resume-btn:hover {
+      background-color: #64b5f6;
+      color: #0f1a2e;
+    }
+
+    body.light-mode .resume-btn {
+      border-color: #00d4ff;
+      color: #00d4ff;
+    }
+
+    body.light-mode .resume-btn:hover {
+      background-color: #0066cc;
+      color: #ffffff;
+    }
+
+    /* Mobile Menu */
+    #mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #00d4ff;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    body.light-mode #mobile-menu-btn {
+      color: #00d4ff;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+      }
+
+      .header-content {
+        gap: 20px;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: #121212;
+        flex-direction: column;
+        gap: 0;
+        padding: 20px;
+        border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+      }
+
+      body.light-mode nav {
+        background-color: #f5f5f5;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(100, 181, 246, 0.1);
+      }
+
+      #mobile-menu-btn {
+        display: block;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 60px 0;
+        min-height: auto;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 60px 0;
+      }
+    }
+
+    /* Contact Section */
+    .contact-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #00d4ff, #00a8cc);
+      color: #0f1a2e;
+      padding: 15px 40px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .contact-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+    }
+
+    body.light-mode .contact-btn {
+      background: linear-gradient(135deg, #00d4ff, #0099bb);
+      color: #ffffff;
+    }
+
+    #contact {
+      text-align: center;
+      padding: 100px 30px;
+      background: rgba(0, 212, 255, 0.05);
+      border-radius: 8px;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+    }
+
+    body.light-mode #contact {
+      background: rgba(0, 212, 255, 0.03);
+    }
+
+    #contact h2 {
+      margin-bottom: 30px;
+      font-size: 2.5em;
+      color: #00d4ff;
+    }
+
+    #contact p {
+      font-size: 1.1em;
+      margin-bottom: 30px;
+      color: #b0bec5;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      min-height: 100vh;
+      padding: 120px 0;
+      margin-bottom: 0;
+    }
+
+    .hero-content h3 {
+      font-size: 1em;
+      color: #b0bec5;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5em;
+      line-height: 1.2;
+      margin-bottom: 30px;
+      border: none;
+      padding: 0;
+      color: #e0e0e0;
+    }
+
+    .hero-content .cta-btn {
+      display: inline-block;
+      background: #00d4ff;
+      color: #121212;
+      padding: 14px 32px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .hero-content .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 212, 255, 0.05));
+      padding: 20px;
+      box-shadow: 0 20px 60px rgba(0, 212, 255, 0.15);
+    }
+
+    body.light-mode .hero-image img {
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(0, 212, 255, 0.03));
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 40px 0;
+        margin-bottom: 50px;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5em;
+      }
+
+      .hero-image img {
+        max-width: 300px;
+      }
     }
   </style>
 </head>
 <body class="dark-mode">
 
-  <!-- Burger Menu Button -->
-  <button id="burger-btn">&#9776;</button>
-
-  <!-- Dark Mode Toggle -->
-  <button id="toggle-btn">Light Mode</button>
-
-  <!-- Sidebar -->
-  <div id="mySidebar" class="sidebar">
-    <span class="closebtn" onclick="closeNav()">&times;</span>
-    <a href="#">📍 Philippines (Remote, flexible)</a>
-    <a href="mailto:edmagno055@gmail.com">✉️ edmagno055@gmail.com</a>
-    <a href="https://www.linkedin.com/in/eduard-joseph-magno-38396b242/" target="_blank">💼 LinkedIn</a>
-    <a href="https://github.com/eduard055" target="_blank">🐙 GitHub</a>
-  </div>
+  <!-- Header Navigation -->
+  <header>
+    <div class="header-content">
+      <a href="#" class="logo"></a>
+      <nav id="nav-menu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <a href="#projects">Projects</a>
+        <a href="#" class="resume-btn">Resume</a>
+      </nav>
+    </div>
+  </header>
 
   <div class="container">
-    <h1>Eduard Joseph Magno</h1>
-    <p style="color: #64b5f6; margin-bottom: 20px;">Computer Engineer | QA & Software Developer | Full Stack Enthusiast</p>
-
-    <div class="section">
-      <h2>Professional Summary</h2>
-      <p>
-        Computer Engineering graduate with hands-on experience in <strong>software testing, QA, and web development</strong>.
-        Proficient in <strong>React, JavaScript, Github, and Vercel deployment</strong> for building modern applications.
-        Skilled in <strong>manual & automated testing, API testing, debugging, and documentation</strong>.
-        Strong communicator with expertise in <strong>remote collaboration</strong>, known for attention to detail
-        and a commitment to delivering quality solutions.
-      </p>
+    <!-- Hero Section -->
+    <div class="hero" id="home">
+      <div class="hero-content">
+        <h3>Hello, I'm Eduard.</h3>
+        <h1>Software Engineer</h1>
+        <p style="color: #b0bec5; font-size: 1.1em; margin-bottom: 30px;">
+          Building modern web applications with React, JavaScript, and cutting-edge technologies.
+          Passionate about code quality and user experience.
+        </p>
+        <a href="mailto:edmagno055@gmail.com" class="cta-btn">Contact Me</a>
+      </div>
+      <div class="hero-image">
+        <img src="./Number_2-modified-removebg-preview.png" alt="Eduard Joseph Magno" />
+      </div>
+    </div>
+    <div class="section" id="about">
+      <h2>About Me</h2>
+      <p>Hi, I'm Eduard Joseph Magno, a passionate software engineer with a strong foundation in web development. I specialize in creating modern, responsive web applications using technologies like React, JavaScript, and HTML/CSS.</p>
+      <p>With experience in both frontend and backend development, I'm committed to writing clean, maintainable code and delivering exceptional user experiences. I thrive in collaborative environments and am always eager to learn new technologies and best practices.</p>
     </div>
 
-    <div class="section">
+    <div class="section" id="skills">
       <h2>Technical Skills</h2>
       <div class="skills-grid">
         <div class="skill-category">
           <h4>Frontend Development</h4>
           <ul>
-            <li>React </li>
-            <li>JavaScript</li>
-            <li>HTML & CSS</li>
-            <li>Responsive Design</li>
+            <li><span class="skill-icon"><i class="fab fa-react"></i></span>React</li>
+            <li><span class="skill-icon"><i class="fab fa-js"></i></span>JavaScript</li>
+            <li><span class="skill-icon"><i class="fab fa-html5"></i></span>HTML & CSS</li>
+            <li><span class="skill-icon"><i class="fas fa-mobile-alt"></i></span>Responsive Design</li>
           </ul>
         </div>
 
         <div class="skill-category">
           <h4>Deployment & Tools</h4>
           <ul>
-            <li>Vercel</li>
-            <li>GitHub</li>
+            <li><span class="skill-icon"><i class="fas fa-rocket"></i></span>Vercel</li>
+            <li><span class="skill-icon"><i class="fab fa-github"></i></span>GitHub</li>
           </ul>
         </div>
 
         <div class="skill-category">
           <h4>Testing & QA</h4>
           <ul>
-            <li>Manual Testing</li>
-            <li>Automated Testing</li>
-            <li>Debugging & Documentation</li>
+            <li><span class="skill-icon"><i class="fas fa-check-circle"></i></span>Manual Testing</li>
+            <li><span class="skill-icon"><i class="fas fa-robot"></i></span>Automated Testing</li>
+            <li><span class="skill-icon"><i class="fas fa-bug"></i></span>Debugging & Documentation</li>
           </ul>
         </div>
 
         <div class="skill-category">
           <h4>Backend & Database</h4>
           <ul>
-            <li>SQL</li>
-            <li>API Design</li>
+            <li><span class="skill-icon"><i class="fas fa-database"></i></span>SQL</li>
+            <li><span class="skill-icon"><i class="fas fa-plug"></i></span>API Design</li>
           </ul>
         </div>
 
         <div class="skill-category">
           <h4>Project Management</h4>
           <ul>
-            <li>ClickUp</li>
-            <li>Trello</li>
-            <li>Notion</li>
+            <li><span class="skill-icon"><i class="fas fa-tasks"></i></span>ClickUp</li>
+            <li><span class="skill-icon"><i class="fas fa-th-list"></i></span>Trello</li>
+            <li><span class="skill-icon"><i class="fas fa-book"></i></span>Notion</li>
           </ul>
         </div>
 
         <div class="skill-category">
           <h4>Additional Skills</h4>
           <ul>
-            <li>SEO Optimization</li>
-            <li>Professional Communication</li>
-            <li>Remote Collaboration</li>
-            <li>Problem Solving</li>
+            <li><span class="skill-icon"><i class="fas fa-search"></i></span>SEO Optimization</li>
+            <li><span class="skill-icon"><i class="fas fa-comments"></i></span>Professional Communication</li>
+            <li><span class="skill-icon"><i class="fas fa-users"></i></span>Remote Collaboration</li>
+            <li><span class="skill-icon"><i class="fas fa-lightbulb"></i></span>Problem Solving</li>
           </ul>
         </div>
       </div>
     </div>
 
-    <div class="section">
+    <div class="section" id="experience">
       <h2>Professional Experience</h2>
 
       <h3>Software Engineer & Quality Assurance</h3>
+      <p>Delsan Office System Corporation</p>
       <p><em>Full-time</em></p>
       <ul>
         <li>Conducted manual and automated testing to ensure product reliability and quality</li>
@@ -275,6 +668,7 @@
       </ul>
 
       <h3>SEO & Digital Content Optimization</h3>
+      <p>Study.com</p>
       <p><em>Freelance / Project-based</em></p>
       <ul>
         <li>Optimized website content and metadata for improved search visibility</li>
@@ -282,7 +676,8 @@
         <li>Coordinated with clients to align SEO strategies with business objectives</li>
       </ul>
 
-      <h3>Customer Service & Technical Support</h3>
+      <h3>SQL Scripter</h3>
+      <p>Prime Technology</p>
       <p><em>Previous role</em></p>
       <ul>
         <li>Provided technical troubleshooting and support for client workflow issues</li>
@@ -291,33 +686,54 @@
       </ul>
     </div>
 
-    <div class="section">
-      <h2>Education</h2>
-      <p><strong>Bachelor of Science in Computer Engineering</strong><br>
-      Universidad de Manila | 2018–2022</p>
+    <div class="section" id="projects">
+      <h2>Projects</h2>
+      <p>Here are some of my recent projects:</p>
+      <!-- Project items would go here -->
     </div>
 
-    <div class="section">
-      <h2>Key Strengths</h2>
-      <ul>
-        <li>Strong adaptability in remote and distributed work environments</li>
-        <li>Detail-oriented with a focus on code quality and user experience</li>
-        <li>Commitment to continuous learning and professional growth</li>
-        <li>Excellent problem-solving and debugging skills</li>
-        <li>Collaborative team player with strong communication abilities</li>
-      </ul>
+    <div class="section" id="contact">
+      <h2>Let's Connect</h2>
+      <p style= font-size: 1.1em;>
+        Have an exciting project?I'm always up for a conversation!
+        Don't be shy—hit me up and let's create something amazing together. ☕
+      </p>
+      <a href="mailto:edmagno055@gmail.com" class="contact-btn">Send Me an Email</a>
     </div>
   </div>
 
   <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (!link.classList.contains('resume-btn')) {
+          navMenu.classList.remove('active');
+        }
+      });
+    });
+
     // Dark/Light mode toggle
-    const toggleBtn = document.getElementById('toggle-btn');
+    const html = document.documentElement;
     const body = document.body;
 
     // Load saved preference or default to dark mode
     const savedMode = localStorage.getItem('theme-mode') || 'dark-mode';
     body.className = savedMode;
-    updateToggleButtonText();
+
+    // Create and add theme toggle button to header
+    const header = document.querySelector('header');
+    const toggleBtn = document.createElement('button');
+    toggleBtn.id = 'toggle-btn';
+    toggleBtn.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    header.querySelector('.header-content').appendChild(toggleBtn);
 
     toggleBtn.addEventListener('click', () => {
       body.classList.toggle('dark-mode');
@@ -327,29 +743,22 @@
       const newMode = body.classList.contains('dark-mode') ? 'dark-mode' : 'light-mode';
       localStorage.setItem('theme-mode', newMode);
 
-      updateToggleButtonText();
+      // Update button text
+      toggleBtn.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
     });
 
-    function updateToggleButtonText() {
-      toggleBtn.textContent = body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
-    }
-
-    // Burger menu functions
-    const sidebar = document.getElementById("mySidebar");
-    const burgerBtn = document.getElementById("burger-btn");
-
-    burgerBtn.addEventListener("click", () => {
-      sidebar.style.width = "250px";
-    });
-
-    function closeNav() {
-      sidebar.style.width = "0";
-    }
-
-    // Close sidebar when clicking on a link
-    const sidebarLinks = document.querySelectorAll('.sidebar a');
-    sidebarLinks.forEach(link => {
-      link.addEventListener('click', closeNav);
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && href !== '#home') {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
     });
   </script>
 
