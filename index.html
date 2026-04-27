@@ -2,33 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Resume - Eduard Joseph Magno</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Eduard Joseph Magno</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
-      background-color: #121212; /* Dark mode default */
+      background-color: #121212;
       color: #e0e0e0;
       transition: background-color 0.3s, color 0.3s;
     }
+
+    body.light-mode {
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    body.light-mode h1, body.light-mode h2, body.light-mode h3 {
+      color: #222;
+    }
+
+    body.light-mode h1 {
+      border-bottom-color: #333;
+    }
+
+    body.light-mode a {
+      color: #0066cc;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      padding-top: 80px;
+    }
+
     h1, h2 { color: #e0e0e0; }
-    h1 { border-bottom: 2px solid #e0e0e0; padding-bottom: 5px; }
-    ul { margin: 0; padding-left: 20px; }
-    .section { margin-bottom: 25px; }
+    h1 { border-bottom: 2px solid #e0e0e0; padding-bottom: 10px; margin-bottom: 20px; font-size: 2.5em; }
+    h2 { margin-top: 25px; margin-bottom: 15px; font-size: 1.5em; }
+    h3 { margin-top: 15px; margin-bottom: 8px; font-size: 1.1em; }
+
+    ul { margin: 10px 0; padding-left: 20px; }
+    li { margin: 8px 0; }
+
+    .section { margin-bottom: 30px; }
 
     /* Toggle button */
     #toggle-btn {
       position: fixed;
       top: 20px;
       right: 20px;
-      padding: 8px 12px;
+      padding: 10px 14px;
       background: #e0e0e0;
       color: #121212;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       z-index: 1001;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    body.light-mode #toggle-btn {
+      background: #333;
+      color: #f5f5f5;
     }
 
     /* Burger menu button */
@@ -44,6 +87,10 @@
       color: #e0e0e0;
     }
 
+    body.light-mode #burger-btn {
+      color: #333;
+    }
+
     /* Sidebar menu */
     .sidebar {
       height: 100%;
@@ -57,15 +104,20 @@
       padding-top: 60px;
       z-index: 1000;
     }
+
     .sidebar a {
-      padding: 10px 20px;
+      padding: 12px 20px;
       text-decoration: none;
-      font-size: 18px;
+      font-size: 16px;
       color: #fff;
       display: block;
       transition: 0.2s;
     }
-    .sidebar a:hover { background-color: #34495e; }
+
+    .sidebar a:hover {
+      background-color: #34495e;
+    }
+
     .sidebar .closebtn {
       position: absolute;
       top: 20px;
@@ -73,6 +125,49 @@
       font-size: 30px;
       color: #fff;
       cursor: pointer;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .skill-category {
+      background-color: rgba(255,255,255,0.05);
+      padding: 12px;
+      border-radius: 5px;
+    }
+
+    body.light-mode .skill-category {
+      background-color: rgba(0,0,0,0.05);
+    }
+
+    .skill-category h4 {
+      margin-bottom: 8px;
+      color: #64b5f6;
+    }
+
+    body.light-mode .skill-category h4 {
+      color: #0066cc;
+    }
+
+    .skill-category ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .skill-category li {
+      margin: 5px 0;
+      padding-left: 15px;
+      position: relative;
+    }
+
+    .skill-category li:before {
+      content: "▸";
+      position: absolute;
+      left: 0;
     }
   </style>
 </head>
@@ -82,121 +177,168 @@
   <button id="burger-btn">&#9776;</button>
 
   <!-- Dark Mode Toggle -->
-  <button id="toggle-btn">Switch to Light Mode</button>
+  <button id="toggle-btn">Light Mode</button>
 
   <!-- Sidebar -->
- <!-- Sidebar -->
-<div id="mySidebar" class="sidebar">
-  <span class="closebtn" onclick="closeNav()">&times;</span>
-
-  <!-- Professional Photo -->
-  <img src="C:\Users\Ej\Downloads\Number_2-modified-removebg-preview.png" 
-       alt="Professional Photo of Eduard Joseph Magno" 
-       class="sidebar-photo">
-
-  <a href="#">📍 Philippines (Remote, flexible)</a>
-  <a href="mailto:edmagno055@gmail.com">✉️ edmagno055@gmail.com</a>
-  <a href="viber://chat?number=+639284653710">📞 +63-XXX-XXX-XXXX (Viber)</a>
-  <a href="https://www.linkedin.com/in/eduard-joseph-magno-38396b242/" target="_blank">💻 LinkedIn</a>
-</div>
-
-<style>
-  .sidebar-photo {
-    display: block;
-    margin: 0 auto 20px auto; /* centers the photo */
-    width: 120px;             /* adjust size */
-    height: 120px;
-    border-radius: 50%;       /* circular photo */
-    object-fit: cover;        /* crops nicely */
-    border: 3px solid #fff;   /* white border for contrast */
-  }
-</style>
-
-
-  <h1>Eduard Joseph Magno</h1>
-
-  <div class="section">
-    <h2>Professional Summary</h2>
-    <p>
-      I’m Eduard Joseph Magno, a Computer Engineering graduate with hands-on experience in 
-      <strong>software testing, QA, and operational support</strong>. Skilled in 
-      <strong>manual and automated testing, debugging, documentation, and API testing</strong>, 
-      with a strong foundation in <strong>web and mobile development (Java, JavaScript, SQL, HTML, CSS)</strong> 
-      and <strong>SEO optimization</strong>. Adept at using <strong>SaaS tools (ClickUp, Trello, Notion)</strong> 
-      to streamline workflows and improve efficiency. Known for clear communication, adaptability, and attention to detail, 
-      I thrive in remote collaboration and am seeking a role in QA, support, SEO, or software engineering where I can contribute 
-      technical expertise and grow professionally.
-    </p>
+  <div id="mySidebar" class="sidebar">
+    <span class="closebtn" onclick="closeNav()">&times;</span>
+    <a href="#">📍 Philippines (Remote, flexible)</a>
+    <a href="mailto:edmagno055@gmail.com">✉️ edmagno055@gmail.com</a>
+    <a href="https://www.linkedin.com/in/eduard-joseph-magno-38396b242/" target="_blank">💼 LinkedIn</a>
+    <a href="https://github.com" target="_blank">🐙 GitHub</a>
   </div>
 
-  <div class="section">
-    <h2>Core Skills</h2>
-    <ul>
-      <li>Software Testing & QA (manual & automated)</li>
-      <li>Debugging & Documentation</li>
-      <li>Web & Mobile Development (Java, JavaScript, SQL, HTML, CSS)</li>
-      <li>SEO & Content Optimization</li>
-      <li>API Testing (Postman, browser dev tools)</li>
-      <li>Workflow Management (ClickUp, Trello, Notion)</li>
-      <li>Clear Written English & Professional Communication</li>
-      <li>Financial Workflow Management (PayPal, GCash, Binance)</li>
-      <li>Transcription & English Comprehension Accuracy</li>
-    </ul>
-  </div>
+  <div class="container">
+    <h1>Eduard Joseph Magno</h1>
+    <p style="color: #64b5f6; margin-bottom: 20px;">Computer Engineer | QA & Software Developer | Full Stack Enthusiast</p>
 
-  <div class="section">
-    <h2>Professional Experience</h2>
-    <h3>Software Engineer and Quality Assurance</h3>
-    <p><em>Full time</em></p>
-    <ul>
-      <li>Conducted manual and automated testing to ensure product reliability.</li>
-      <li>Debugged and documented issues, providing clear feedback to developers.</li>
-      <li>Performed API testing using Postman and browser developer tools.</li>
-      <li>Collaborated remotely with teams, ensuring smooth communication and workflow.</li>
-    </ul>
+    <div class="section">
+      <h2>Professional Summary</h2>
+      <p>
+        Computer Engineering graduate with hands-on experience in <strong>software testing, QA, and web development</strong>.
+        Proficient in <strong>React, JavaScript, Git, and Vercel deployment</strong> for building modern applications.
+        Skilled in <strong>manual & automated testing, API testing, debugging, and documentation</strong>.
+        Strong communicator with expertise in <strong>remote collaboration</strong>, known for attention to detail
+        and a commitment to delivering quality solutions.
+      </p>
+    </div>
 
-    <h3>SEO & Digital Content Optimization</h3>
-    <p><em>Freelance / Project-based</em></p>
-    <ul>
-      <li>Optimized website content for improved search visibility.</li>
-      <li>Applied keyword research and analytics to boost engagement.</li>
-      <li>Coordinated with clients to align SEO strategies with business goals.</li>
-    </ul>
+    <div class="section">
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h4>Frontend Development</h4>
+          <ul>
+            <li>React & React Hooks</li>
+            <li>JavaScript (ES6+)</li>
+            <li>HTML5 & CSS3</li>
+            <li>Responsive Design</li>
+          </ul>
+        </div>
 
-    <h3>Customer Service & Technical Support</h3>
-    <p><em>Previous role</em></p>
-    <ul>
-      <li>Assisted clients with technical troubleshooting and workflow issues.</li>
-      <li>Provided clear, professional communication in English across platforms.</li>
-      <li>Documented solutions and optimized processes for efficiency.</li>
-    </ul>
-  </div>
+        <div class="skill-category">
+          <h4>Deployment & Tools</h4>
+          <ul>
+            <li>Vercel</li>
+            <li>Git & GitHub</li>
+            <li>Version Control</li>
+            <li>Command Line</li>
+          </ul>
+        </div>
 
-  <div class="section">
-    <h2>Education</h2>
-    <p><strong>Bachelor of Science in Computer Engineering</strong><br>
-    Universidad de Manila | 2018–2022</p>
-  </div>
+        <div class="skill-category">
+          <h4>Testing & QA</h4>
+          <ul>
+            <li>Manual Testing</li>
+            <li>Automated Testing</li>
+            <li>API Testing (Postman)</li>
+            <li>Debugging & Documentation</li>
+          </ul>
+        </div>
 
-  <div class="section">
-    <h2>Additional Strengths</h2>
-    <ul>
-      <li>Strong adaptability in remote work environments</li>
-      <li>Detail-oriented and results-driven mindset</li>
-      <li>Commitment to continuous learning and professional growth</li>
-    </ul>
+        <div class="skill-category">
+          <h4>Backend & Database</h4>
+          <ul>
+            <li>Java</li>
+            <li>SQL</li>
+            <li>API Design</li>
+            <li>Data Management</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h4>Project Management</h4>
+          <ul>
+            <li>ClickUp</li>
+            <li>Trello</li>
+            <li>Notion</li>
+            <li>Workflow Optimization</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h4>Additional Skills</h4>
+          <ul>
+            <li>SEO Optimization</li>
+            <li>Professional Communication</li>
+            <li>Remote Collaboration</li>
+            <li>Problem Solving</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Professional Experience</h2>
+
+      <h3>Software Engineer & Quality Assurance</h3>
+      <p><em>Full-time</em></p>
+      <ul>
+        <li>Conducted manual and automated testing to ensure product reliability and quality</li>
+        <li>Debugged issues and provided detailed documentation for developer feedback</li>
+        <li>Performed API testing using Postman and browser developer tools</li>
+        <li>Collaborated remotely with cross-functional teams in agile environments</li>
+      </ul>
+
+      <h3>SEO & Digital Content Optimization</h3>
+      <p><em>Freelance / Project-based</em></p>
+      <ul>
+        <li>Optimized website content and metadata for improved search visibility</li>
+        <li>Conducted keyword research and applied analytics to increase engagement</li>
+        <li>Coordinated with clients to align SEO strategies with business objectives</li>
+      </ul>
+
+      <h3>Customer Service & Technical Support</h3>
+      <p><em>Previous role</em></p>
+      <ul>
+        <li>Provided technical troubleshooting and support for client workflow issues</li>
+        <li>Delivered clear, professional communication across multiple platforms</li>
+        <li>Documented solutions and implemented process improvements for efficiency</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Education</h2>
+      <p><strong>Bachelor of Science in Computer Engineering</strong><br>
+      Universidad de Manila | 2018–2022</p>
+    </div>
+
+    <div class="section">
+      <h2>Key Strengths</h2>
+      <ul>
+        <li>Strong adaptability in remote and distributed work environments</li>
+        <li>Detail-oriented with a focus on code quality and user experience</li>
+        <li>Commitment to continuous learning and professional growth</li>
+        <li>Excellent problem-solving and debugging skills</li>
+        <li>Collaborative team player with strong communication abilities</li>
+      </ul>
+    </div>
   </div>
 
   <script>
-    // Dark mode toggle
+    // Dark/Light mode toggle
     const toggleBtn = document.getElementById('toggle-btn');
+    const body = document.body;
+
+    // Load saved preference or default to dark mode
+    const savedMode = localStorage.getItem('theme-mode') || 'dark-mode';
+    body.className = savedMode;
+    updateToggleButtonText();
+
     toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      toggleBtn.textContent = 
-        document.body.classList.contains('dark-mode') 
-        ? 'Switch to Light Mode' 
-        : 'Switch to Dark Mode';
+      body.classList.toggle('dark-mode');
+      body.classList.toggle('light-mode');
+
+      // Save preference
+      const newMode = body.classList.contains('dark-mode') ? 'dark-mode' : 'light-mode';
+      localStorage.setItem('theme-mode', newMode);
+
+      updateToggleButtonText();
     });
+
+    function updateToggleButtonText() {
+      toggleBtn.textContent = body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+    }
 
     // Burger menu functions
     const sidebar = document.getElementById("mySidebar");
@@ -209,6 +351,12 @@
     function closeNav() {
       sidebar.style.width = "0";
     }
+
+    // Close sidebar when clicking on a link
+    const sidebarLinks = document.querySelectorAll('.sidebar a');
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', closeNav);
+    });
   </script>
 
 </body>
