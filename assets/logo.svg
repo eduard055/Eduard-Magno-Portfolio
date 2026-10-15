@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Eduard Magno">
+  <rect width="256" height="256" rx="56" fill="#05080f"/>
+  <circle cx="128" cy="128" r="96" fill="none" stroke="#2ec4b6" stroke-width="6" opacity="0.35"/>
+  <text x="128" y="168" text-anchor="middle" font-family="Syne, Arial, sans-serif" font-size="140" font-weight="800" fill="#2ec4b6">E</text>
+</svg>

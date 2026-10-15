@@ -3,10 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eduard Joseph Magno | Software Engineer & QA</title>
+  <title>Eduard Joseph Magno | Software Engineer &amp; QA</title>
+  <meta name="description" content="Portfolio of Eduard Joseph Magno — Software Engineer and Quality Assurance specialist. Building reliable web products, smoother releases, and better user experiences.">
+  <meta name="keywords" content="Eduard Joseph Magno, Software Engineer, Quality Assurance, QA Specialist, Web Developer, React, JavaScript, Portfolio, Philippines">
+  <meta name="author" content="Eduard Joseph Magno">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#05080f">
+  <link rel="canonical" href="https://eduard055.github.io/Eduard-Magno-Portfolio/">
+
+  <!-- Favicon & app icons -->
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./assets/logo.svg" type="image/svg+xml" sizes="any">
+  <link rel="apple-touch-icon" href="./Number_2-modified-removebg-preview.png">
+  <link rel="shortcut icon" href="./assets/favicon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Eduard Joseph Magno">
+  <meta property="og:title" content="Eduard Joseph Magno | Software Engineer &amp; QA">
+  <meta property="og:description" content="Software Engineer and Quality Assurance specialist building reliable products and smoother releases.">
+  <meta property="og:url" content="https://eduard055.github.io/Eduard-Magno-Portfolio/">
+  <meta property="og:image" content="https://eduard055.github.io/Eduard-Magno-Portfolio/Number_2-modified-removebg-preview.png">
+  <meta property="og:image:alt" content="Portrait of Eduard Joseph Magno">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Eduard Joseph Magno | Software Engineer &amp; QA">
+  <meta name="twitter:description" content="Software Engineer and Quality Assurance specialist building reliable products and smoother releases.">
+  <meta name="twitter:image" content="https://eduard055.github.io/Eduard-Magno-Portfolio/Number_2-modified-removebg-preview.png">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Eduard Joseph Magno",
+    "url": "https://eduard055.github.io/Eduard-Magno-Portfolio/",
+    "image": "https://eduard055.github.io/Eduard-Magno-Portfolio/Number_2-modified-removebg-preview.png",
+    "jobTitle": "Software Engineer & Quality Assurance Specialist",
+    "email": "mailto:edmagno055@gmail.com",
+    "sameAs": [
+      "https://github.com/eduard055",
+      "https://www.linkedin.com/in/eduard-joseph-magno-38396b242"
+    ],
+    "knowsAbout": ["Software Engineering", "Quality Assurance", "React", "JavaScript", "SEO"]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.google.com/specimen/Space+Grotesk?preview.script=Latn" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -19,9 +66,38 @@
       --accent-border: rgba(46, 196, 182, 0.35);
       --line: rgba(238, 243, 248, 0.08);
       --radius: 16px;
-      --font: "Outfit", sans-serif;
-      --logo: "Space Grotesk", sans-serif;
       --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+
+      /* Typography — family */
+      --font-body: "Outfit", sans-serif;
+      --font-display: "Space Grotesk", sans-serif;
+
+      /* Typography — weight */
+      --fw-regular: 400;
+      --fw-medium: 500;
+      --fw-semibold: 600;
+      --fw-bold: 700;
+      --fw-black: 800;
+
+      /* Typography — size */
+      --fs-xs: 0.92rem;
+      --fs-sm: 0.95rem;
+      --fs-base: 1.05rem;
+      --fs-md: 1.08rem;
+      --fs-lg: 1.12rem;
+      --fs-xl: 1.15rem;
+      --fs-2xl: 1.35rem;
+      --fs-3xl: 1.4rem;
+      --fs-4xl: 1.5rem;
+      --fs-5xl: 1.55rem;
+      --fs-label: 0.95rem;
+      --fs-nav: 1.05rem;
+      --fs-btn: 1.05rem;
+      --fs-logo: 1.85rem;
+      --fs-logo-lg: 2.4rem;
+      --fs-tagline: clamp(1.15rem, 2.5vw, 1.4rem);
+      --fs-section: clamp(2.15rem, 4.2vw, 3rem);
+      --fs-hero: clamp(3rem, 8vw, 5.6rem);
     }
 
     body.light-mode {
@@ -44,17 +120,24 @@
 
     html {
       scroll-behavior: smooth;
+      font-size: 18px;
+    }
+
+    @media (min-width: 1100px) {
+      html {
+        font-size: 19.5px;
+      }
     }
 
     body {
-      font-family: var(--font);
+      font-family: var(--font-body);
       background:
         radial-gradient(ellipse 80% 50% at 50% -10%, rgba(46, 196, 182, 0.16), transparent 55%),
         radial-gradient(ellipse 50% 40% at 100% 20%, rgba(56, 120, 180, 0.12), transparent 50%),
         radial-gradient(ellipse 40% 30% at 0% 60%, rgba(46, 196, 182, 0.08), transparent 45%),
         var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
       overflow-x: hidden;
     }
 
@@ -69,7 +152,7 @@
     }
 
     .container {
-      width: min(1080px, calc(100% - 40px));
+      width: min(1120px, calc(100% - 48px));
       margin: 0 auto;
     }
 
@@ -97,9 +180,9 @@
     }
 
     .logo {
-      font-family: var(--logo);
-      font-size: 1.65rem;
-      font-weight: 800;
+      font-family: var(--font-display);
+      font-size: var(--fs-logo);
+      font-weight: var(--fw-black);
       letter-spacing: -0.03em;
       color: var(--accent);
       line-height: 1;
@@ -112,8 +195,8 @@
     }
 
     .icon-btn {
-      width: 42px;
-      height: 42px;
+      width: 46px;
+      height: 46px;
       border-radius: 999px;
       border: 1px solid var(--line);
       background: var(--bg-elevated);
@@ -155,10 +238,12 @@
 
     .nav-panel a {
       display: block;
-      padding: 12px 14px;
+      padding: 14px 16px;
       border-radius: 10px;
       color: var(--muted);
-      font-weight: 500;
+      font-family: var(--font-body);
+      font-weight: var(--fw-medium);
+      font-size: var(--fs-nav);
       transition: background 0.2s, color 0.2s;
     }
 
@@ -173,20 +258,102 @@
       margin-top: 4px;
     }
 
+    /* Resume modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(5, 8, 15, 0.72);
+      backdrop-filter: blur(8px);
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      width: min(420px, 100%);
+      background: var(--bg-elevated);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px 26px 24px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transform: translateY(12px) scale(0.98);
+      transition: transform 0.25s ease;
+    }
+
+    .modal-backdrop.open .modal-card {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 16px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: var(--fs-2xl);
+      border: 1px solid var(--accent-border);
+    }
+
+    .modal-card h3 {
+      font-family: var(--font-body);
+      font-size: var(--fs-2xl);
+      font-weight: var(--fw-semibold);
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .modal-card p {
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-regular);
+      margin-bottom: 22px;
+      line-height: 1.55;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .modal-actions .btn {
+      min-width: 120px;
+      cursor: pointer;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
     /* Hero */
     .hero {
       min-height: 100vh;
       display: grid;
       place-items: center;
       text-align: center;
-      padding: 120px 0 80px;
+      padding: 120px 0 64px;
       position: relative;
     }
 
     .orbit {
-      width: min(320px, 72vw);
+      width: min(360px, 74vw);
       aspect-ratio: 1;
-      margin: 0 auto 36px;
+      margin: 0 auto 32px;
       position: relative;
       display: grid;
       place-items: center;
@@ -250,8 +417,9 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.8rem, 8vw, 5.5rem);
-      font-weight: 600;
+      font-family: var(--font-body);
+      font-size: var(--fs-hero);
+      font-weight: var(--fw-semibold);
       letter-spacing: -0.03em;
       line-height: 1.05;
       margin-bottom: 16px;
@@ -260,8 +428,10 @@
 
     .hero .tagline {
       color: var(--muted);
-      font-size: clamp(1.05rem, 2.4vw, 1.25rem);
-      max-width: 540px;
+      font-family: var(--font-body);
+      font-size: var(--fs-tagline);
+      font-weight: var(--fw-regular);
+      max-width: 620px;
       margin: 0 auto 28px;
       animation: float-in 1s ease 0.28s both;
     }
@@ -279,10 +449,11 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 13px 24px;
+      padding: 15px 28px;
       border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.95rem;
+      font-family: var(--font-body);
+      font-weight: var(--fw-semibold);
+      font-size: var(--fs-btn);
       border: 1px solid transparent;
       transition: transform 0.25s, background 0.25s, color 0.25s, border-color 0.25s;
     }
@@ -308,30 +479,34 @@
 
     /* Sections */
     section {
-      padding: 100px 0;
+      padding: 80px 0;
     }
 
     .section-label {
       color: var(--accent);
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-family: var(--font-body);
+      font-size: var(--fs-label);
+      font-weight: var(--fw-semibold);
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .section-title {
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 600;
+      font-family: var(--font-body);
+      font-size: var(--fs-section);
+      font-weight: var(--fw-semibold);
       letter-spacing: -0.02em;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .section-lead {
       color: var(--muted);
-      max-width: 640px;
-      font-size: 1.05rem;
-      margin-bottom: 40px;
+      max-width: 700px;
+      font-family: var(--font-body);
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-regular);
+      margin-bottom: 32px;
     }
 
     .reveal {
@@ -349,23 +524,25 @@
     .about-grid {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
-      gap: 40px;
+      gap: 28px;
       align-items: start;
     }
 
     .about-copy p {
       color: var(--muted);
-      margin-bottom: 16px;
-      font-size: 1.05rem;
+      margin-bottom: 14px;
+      font-family: var(--font-body);
+      font-size: var(--fs-lg);
+      font-weight: var(--fw-regular);
     }
 
     .about-highlights {
       display: grid;
-      gap: 14px;
+      gap: 12px;
     }
 
     .about-highlights div {
-      padding: 18px 20px;
+      padding: 16px 18px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: color-mix(in srgb, var(--bg-elevated) 80%, transparent);
@@ -374,24 +551,28 @@
     .about-highlights strong {
       display: block;
       color: var(--accent);
-      font-size: 1.4rem;
+      font-family: var(--font-body);
+      font-size: var(--fs-5xl);
+      font-weight: var(--fw-bold);
       margin-bottom: 4px;
     }
 
     .about-highlights span {
       color: var(--muted);
-      font-size: 0.95rem;
+      font-family: var(--font-body);
+      font-size: var(--fs-base);
+      font-weight: var(--fw-regular);
     }
 
     /* Skills */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
+      gap: 16px;
     }
 
     .skill-group {
-      padding: 24px;
+      padding: 20px;
       border-radius: var(--radius);
       border: 1px solid var(--line);
       background: color-mix(in srgb, var(--bg-elevated) 85%, transparent);
@@ -404,9 +585,10 @@
     }
 
     .skill-group h3 {
-      font-size: 1.05rem;
+      font-family: var(--font-body);
+      font-size: var(--fs-xl);
       margin-bottom: 16px;
-      font-weight: 600;
+      font-weight: var(--fw-semibold);
     }
 
     .tags {
@@ -420,26 +602,27 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 7px 12px;
+      padding: 8px 14px;
       border-radius: 999px;
       background: var(--accent-soft);
       color: var(--accent);
-      font-size: 0.82rem;
-      font-weight: 500;
+      font-family: var(--font-body);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-medium);
       border: 1px solid transparent;
     }
 
     /* Experience */
     .timeline {
       display: grid;
-      gap: 18px;
+      gap: 14px;
     }
 
     .job {
       display: grid;
-      grid-template-columns: 56px 1fr;
-      gap: 18px;
-      padding: 24px;
+      grid-template-columns: 52px 1fr;
+      gap: 16px;
+      padding: 20px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: color-mix(in srgb, var(--bg-elevated) 85%, transparent);
@@ -459,7 +642,8 @@
       place-items: center;
       background: var(--accent-soft);
       color: var(--accent);
-      font-weight: 700;
+      font-family: var(--font-body);
+      font-weight: var(--fw-bold);
       border: 1px solid var(--accent-border);
     }
 
@@ -468,29 +652,38 @@
       flex-wrap: wrap;
       gap: 8px 14px;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-family: var(--font-body);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-regular);
       margin-bottom: 8px;
     }
 
     .job-meta .current {
       color: var(--accent);
-      font-weight: 600;
+      font-weight: var(--fw-semibold);
     }
 
     .job h3 {
-      font-size: 1.25rem;
+      font-family: var(--font-body);
+      font-size: var(--fs-3xl);
+      font-weight: var(--fw-semibold);
       margin-bottom: 4px;
     }
 
     .job .company {
       color: var(--text);
-      font-weight: 500;
+      font-family: var(--font-body);
+      font-weight: var(--fw-medium);
       margin-bottom: 10px;
+      font-size: var(--fs-md);
     }
 
     .job p {
       color: var(--muted);
       margin-bottom: 14px;
+      font-family: var(--font-body);
+      font-size: var(--fs-md);
+      font-weight: var(--fw-regular);
     }
 
     .job-tags {
@@ -503,7 +696,7 @@
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
+      gap: 18px;
     }
 
     .project {
@@ -516,7 +709,7 @@
         color-mix(in srgb, var(--bg-elevated) 90%, transparent);
       display: flex;
       flex-direction: column;
-      min-height: 280px;
+      min-height: auto;
       transition: transform 0.3s, border-color 0.3s;
     }
 
@@ -536,31 +729,38 @@
     }
 
     .project-body {
-      padding: 24px 28px 28px;
+      padding: 20px 22px 22px;
       display: flex;
       flex-direction: column;
       flex: 1;
     }
 
     .project h3 {
-      font-size: 1.45rem;
-      margin-bottom: 12px;
+      font-family: var(--font-body);
+      font-size: var(--fs-4xl);
+      font-weight: var(--fw-semibold);
+      margin-bottom: 10px;
     }
 
     .project p {
       color: var(--muted);
       flex: 1;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
+      font-family: var(--font-body);
+      font-size: var(--fs-md);
+      font-weight: var(--fw-regular);
     }
 
     .project .tags {
-      margin-bottom: 22px;
+      margin-bottom: 16px;
     }
 
     .project-link {
       align-self: flex-start;
       color: var(--accent);
-      font-weight: 600;
+      font-family: var(--font-body);
+      font-weight: var(--fw-semibold);
+      font-size: var(--fs-base);
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -577,27 +777,27 @@
     /* Contact */
     .contact {
       text-align: center;
-      padding-bottom: 60px;
+      padding-bottom: 48px;
     }
 
     .contact .section-title {
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .contact .section-lead {
-      margin: 0 auto 28px;
+      margin: 0 auto 22px;
     }
 
     footer {
       border-top: 1px solid var(--line);
-      padding: 36px 0 50px;
+      padding: 28px 0 36px;
       text-align: center;
     }
 
     .footer-mark {
-      font-family: var(--logo);
-      font-size: 2.4rem;
-      font-weight: 800;
+      font-family: var(--font-display);
+      font-size: var(--fs-logo-lg);
+      font-weight: var(--fw-black);
       letter-spacing: -0.03em;
       color: var(--accent);
       line-height: 1;
@@ -605,7 +805,9 @@
     }
 
     .footer-title {
-      font-weight: 500;
+      font-family: var(--font-body);
+      font-weight: var(--fw-medium);
+      font-size: var(--fs-xl);
       margin-bottom: 18px;
     }
 
@@ -617,8 +819,9 @@
     }
 
     .socials a {
-      width: 42px;
-      height: 42px;
+      width: 48px;
+      height: 48px;
+      font-size: var(--fs-base);
       border-radius: 50%;
       border: 1px solid var(--line);
       display: grid;
@@ -635,7 +838,9 @@
 
     .copyright {
       color: var(--muted);
-      font-size: 0.85rem;
+      font-family: var(--font-body);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-regular);
     }
 
     @keyframes spin {
@@ -665,7 +870,15 @@
       }
 
       section {
-        padding: 72px 0;
+        padding: 56px 0;
+      }
+
+      .hero {
+        padding: 96px 0 40px;
+      }
+
+      .job {
+        padding: 18px;
       }
     }
   </style>
@@ -691,8 +904,20 @@
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
-    <a href="#" class="resume">Resume</a>
+    <a href="#" class="resume" id="resume-btn" role="button">Resume</a>
   </nav>
+
+  <div class="modal-backdrop" id="resume-modal" role="dialog" aria-modal="true" aria-labelledby="resume-modal-title" hidden>
+    <div class="modal-card">
+      <div class="modal-icon" aria-hidden="true"><i class="fas fa-file-arrow-down"></i></div>
+      <h3 id="resume-modal-title">Download my resume?</h3>
+      <p>Would you like a copy of Eduard Joseph Magno’s resume (PDF)?</p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" id="resume-cancel">Not now</button>
+        <button type="button" class="btn btn-primary" id="resume-confirm">Yes, download</button>
+      </div>
+    </div>
+  </div>
 
   <main>
     <section class="hero" id="home">
@@ -943,10 +1168,10 @@
 
   <footer>
     <div class="container">
-      <div class="footer-mark">E.</div>
       <p class="footer-title">Eduard Joseph Magno | Portfolio</p>
       <div class="socials">
         <a href="https://github.com/eduard055" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/eduard-joseph-magno-38396b242" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         <a href="mailto:edmagno055@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
       </div>
       <p class="copyright">© Copyright 2022–2026 Eduard Joseph Magno</p>
@@ -959,6 +1184,12 @@
     const themeBtn = document.getElementById('theme-btn');
     const menuBtn = document.getElementById('menu-btn');
     const navPanel = document.getElementById('nav-panel');
+    const resumeBtn = document.getElementById('resume-btn');
+    const resumeModal = document.getElementById('resume-modal');
+    const resumeCancel = document.getElementById('resume-cancel');
+    const resumeConfirm = document.getElementById('resume-confirm');
+    const RESUME_PATH = './assets/Eduard-Joseph-Magno-Resume.pdf';
+    const RESUME_FILENAME = 'Eduard-Joseph-Magno-Resume.pdf';
 
     const savedMode = localStorage.getItem('theme-mode');
     if (savedMode === 'light-mode') {
@@ -978,12 +1209,62 @@
     });
 
     navPanel.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => navPanel.classList.remove('open'));
+      link.addEventListener('click', () => {
+        if (link !== resumeBtn) navPanel.classList.remove('open');
+      });
     });
 
     document.addEventListener('click', (e) => {
       if (!navPanel.contains(e.target) && !menuBtn.contains(e.target)) {
         navPanel.classList.remove('open');
+      }
+    });
+
+    function openResumeModal() {
+      navPanel.classList.remove('open');
+      resumeModal.hidden = false;
+      requestAnimationFrame(() => resumeModal.classList.add('open'));
+      body.classList.add('modal-open');
+      resumeConfirm.focus();
+    }
+
+    function closeResumeModal() {
+      resumeModal.classList.remove('open');
+      body.classList.remove('modal-open');
+      setTimeout(() => {
+        resumeModal.hidden = true;
+      }, 250);
+    }
+
+    function downloadResume() {
+      const link = document.createElement('a');
+      link.href = RESUME_PATH;
+      link.download = RESUME_FILENAME;
+      link.rel = 'noopener';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    }
+
+    resumeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openResumeModal();
+    });
+
+    resumeCancel.addEventListener('click', closeResumeModal);
+
+    resumeConfirm.addEventListener('click', () => {
+      downloadResume();
+      closeResumeModal();
+    });
+
+    resumeModal.addEventListener('click', (e) => {
+      if (e.target === resumeModal) closeResumeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && resumeModal.classList.contains('open')) {
+        closeResumeModal();
       }
     });
 
