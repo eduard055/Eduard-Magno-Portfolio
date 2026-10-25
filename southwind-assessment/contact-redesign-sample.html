@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact redesign sample — Southwind Marketing</title>
+  <style>
+    @font-face {
+      font-family: "Instrument Sans";
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url("https://staging.southwindmarketing.com/wp-content/uploads/fonts/instrument-sans-latin.woff2") format("woff2");
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #e7e7e4;
+      font-family: "Instrument Sans", "Segoe UI", sans-serif;
+      color: #0c0c0c;
+    }
+    .note {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 18px 24px 8px;
+      font: 500 14px/1.45 "Segoe UI", sans-serif;
+      color: #3d4450;
+    }
+    .artboard {
+      width: 1440px;
+      margin: 12px auto 48px;
+      background: #080A0C;
+      color: #fff;
+      min-height: 900px;
+      position: relative;
+      overflow: hidden;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      height: 88px;
+      padding: 0 40px;
+    }
+    .brand { justify-self: start; color: #fff; text-decoration: none; font-weight: 650; font-size: 12px; letter-spacing: 0.12em; line-height: 1.2; }
+    nav { display: flex; gap: 22px; font-size: 15px; font-weight: 500; }
+    nav span { opacity: 0.92; }
+    .phone {
+      justify-self: end;
+      color: #43AF48;
+      text-decoration: none;
+      font-weight: 650;
+      font-size: 15px;
+    }
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 72px;
+      padding: 28px 72px 72px;
+      align-items: start;
+    }
+    .eyebrow {
+      margin: 0 0 14px;
+      color: #3BA3DB;
+      font-weight: 650;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+    h1 {
+      margin: 0 0 16px;
+      font-size: 52px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+      max-width: 560px;
+    }
+    .lead { margin: 0 0 28px; color: #D0D3D4; font-size: 18px; line-height: 1.5; max-width: 480px; }
+    .facts { display: grid; gap: 14px; margin: 0 0 32px; padding: 0; list-style: none; }
+    .facts li { display: grid; gap: 2px; }
+    .facts small { color: #A4A9AD; font-size: 12px; letter-spacing: 0.06em; font-weight: 650; }
+    .facts strong { font-size: 18px; font-weight: 600; }
+    .facts a { color: #fff; text-decoration: none; }
+    .steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; max-width: 460px; }
+    .steps li { display: grid; grid-template-columns: 28px 1fr; gap: 10px; color: #D0D3D4; font-size: 15px; line-height: 1.4; }
+    .steps b { color: #3BA3DB; font-weight: 650; }
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px 24px;
+      padding-top: 8px;
+    }
+    label { display: grid; gap: 8px; font-size: 14px; font-weight: 600; color: #E2E4E6; }
+    label.full { grid-column: 1 / -1; }
+    input, select, textarea {
+      width: 100%;
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid #5A5F64;
+      color: #fff;
+      font: 400 16px/1.4 "Instrument Sans", "Segoe UI", sans-serif;
+      padding: 8px 0 10px;
+      border-radius: 0;
+    }
+    select { color: #fff; }
+    textarea { min-height: 110px; resize: vertical; }
+    .consent {
+      grid-column: 1 / -1;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.45;
+      color: #A4A9AD;
+    }
+    .consent input { width: 18px; height: 18px; margin-top: 2px; accent-color: #027AB9; }
+    button {
+      grid-column: 1 / -1;
+      justify-self: start;
+      margin-top: 6px;
+      background: #027AB9;
+      color: #fff;
+      border: 0;
+      border-radius: 999px;
+      min-height: 52px;
+      padding: 0 28px;
+      font: 650 16px/1 "Instrument Sans", "Segoe UI", sans-serif;
+      cursor: pointer;
+    }
+    .fine { grid-column: 1 / -1; margin: 0; color: #A4A9AD; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <p class="note">Figma reference, desktop 1440. Screenshot only the black artboard. This file is the visual sample for the contact-page recommendation in the audit. Rebuild it in your own Figma file and share a view link. Do not submit this HTML file in place of Figma.</p>
+  <div class="artboard">
+    <header>
+      <a class="brand" href="#contact">SOUTHWIND<br>MARKETING</a>
+      <nav aria-label="Sample navigation">
+        <span>Services</span>
+        <span>Solutions</span>
+        <span>Industries</span>
+        <span>Work</span>
+        <span>About</span>
+      </nav>
+      <a class="phone" href="tel:+14054673699">405-467-3699</a>
+    </header>
+    <main id="contact">
+      <section>
+        <p class="eyebrow">CONTACT</p>
+        <h1>Let’s talk about your next project</h1>
+        <p class="lead">Tell us what you’re trying to get done. We’ll reply within one business day and tell you what we’d do first.</p>
+        <ul class="facts">
+          <li><small>HEADQUARTERS</small><strong>Yukon, Oklahoma</strong></li>
+          <li><small>PHONE</small><strong><a href="tel:+14054673699">405-467-3699</a></strong></li>
+          <li><small>REPLY TIME</small><strong>Within one business day</strong></li>
+        </ul>
+        <ol class="steps">
+          <li><b>01</b><span>We reply by email or phone, whichever you give us.</span></li>
+          <li><b>02</b><span>We say what we’d do first, and what we’d leave alone.</span></li>
+          <li><b>03</b><span>If it’s a fit, you get a fixed scope. Not a pitch deck.</span></li>
+        </ol>
+      </section>
+      <form action="#" method="post" onsubmit="return false">
+        <label>First name
+          <input type="text" name="first" autocomplete="given-name">
+        </label>
+        <label>Last name
+          <input type="text" name="last" autocomplete="family-name">
+        </label>
+        <label>Work email
+          <input type="email" name="email" autocomplete="email">
+        </label>
+        <label>Phone <span style="font-weight:400;color:#A4A9AD">(optional)</span>
+          <input type="tel" name="phone" autocomplete="tel">
+        </label>
+        <label>Organization
+          <select name="org" aria-label="Organization type">
+            <option>Business</option>
+            <option>City, school, or district</option>
+            <option>Chamber or EDO</option>
+            <option>Nonprofit</option>
+          </select>
+        </label>
+        <label>What do you need?
+          <select name="need" aria-label="What do you need">
+            <option>A website</option>
+            <option>SEO or Google Ads</option>
+            <option>Ongoing marketing</option>
+            <option>CRM or automation</option>
+            <option>Not sure yet</option>
+          </select>
+        </label>
+        <label class="full">How can we help?
+          <textarea name="message"></textarea>
+        </label>
+        <label class="consent">
+          <input type="checkbox" name="sms">
+          <span>Southwind may text me about this inquiry. Message frequency varies. Msg and data rates may apply. Reply STOP to opt out. Consent is not required to purchase.</span>
+        </label>
+        <button type="submit">Send message</button>
+        <p class="fine">We use this to reply. We don’t add you to a newsletter from this form.</p>
+      </form>
+    </main>
+  </div>
+</body>
+</html>

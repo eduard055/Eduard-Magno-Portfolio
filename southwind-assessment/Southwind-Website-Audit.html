@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Website Audit — staging.southwindmarketing.com</title>
+  <style>
+    @page { size: letter; margin: 0.7in 0.75in 0.75in; }
+    * { box-sizing: border-box; }
+    html { font-size: 11pt; }
+    body {
+      margin: 0;
+      color: #1a1d21;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.5;
+      background: #fff;
+    }
+    .wrap { max-width: 780px; margin: 0 auto; padding: 28px 8px 64px; }
+    h1 { font-size: 26px; line-height: 1.15; letter-spacing: -0.03em; margin: 0 0 8px; }
+    h2 { font-size: 16px; margin: 28px 0 8px; letter-spacing: -0.02em; page-break-after: avoid; }
+    h3 { font-size: 13px; margin: 16px 0 4px; page-break-after: avoid; }
+    p { margin: 0 0 8px; }
+    a { color: #02679c; }
+    .meta { color: #3d4450; font-size: 10.5pt; margin-bottom: 18px; }
+    .rule { height: 3px; background: #027AB9; width: 64px; margin: 12px 0 18px; }
+    .callout {
+      background: #f4f7f8;
+      border-left: 3px solid #027AB9;
+      padding: 10px 14px;
+      margin: 12px 0 16px;
+    }
+    table { width: 100%; border-collapse: collapse; margin: 8px 0 14px; font-size: 10.5pt; }
+    th, td { text-align: left; vertical-align: top; padding: 7px 8px; border-bottom: 1px solid #e2e5e8; }
+    th { font-size: 10pt; letter-spacing: 0.04em; text-transform: uppercase; color: #3d4450; }
+    .sev { font-weight: 700; font-size: 10pt; letter-spacing: 0.04em; text-transform: uppercase; }
+    .high { color: #8a3b12; }
+    .med { color: #7a5b00; }
+    .low { color: #1f5c38; }
+    ul { margin: 4px 0 10px; padding-left: 18px; }
+    li { margin: 3px 0; }
+    code, .url { font-family: Consolas, "Courier New", monospace; font-size: 10pt; }
+    .foot { margin-top: 28px; font-size: 10pt; color: #3d4450; }
+    h2, h3, table, .callout { break-inside: avoid; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="meta">Prepared by Eduard Joseph Magno · Website QA and UI review · 18 October 2026</p>
+    <h1>Website audit: staging.southwindmarketing.com</h1>
+    <div class="rule"></div>
+    <p class="meta">Assessment site for Southwind Marketing · Read-only review · WordPress on Cloudways / nginx</p>
+
+    <h2>1. Executive summary</h2>
+    <p>This is a professional staging site, not a rough draft. The positioning is specific, the templates share one visual system, and a lot of the usual QA work is already done: one H1 per page, labeled forms, a real 404, keyboard focus, and a mobile menu with usable hit areas. I would be comfortable showing this to a client as a preview.</p>
+    <p>I would not flip it to the public production domain yet. Three things should be fixed first. The proof-stat component breaks its own numbers when the figure is a phrase, and I confirmed that at desktop width, not only on a phone. The contact form asks a visitor to scan 15 services before they can say what they need. The SEO template is missing a canonical on every page I checked, and the homepage has no share image.</p>
+    <div class="callout">
+      <strong>Launch recommendation:</strong> hold the public launch for the stat component, the contact form, and the production metadata switch. The current <span class="url">noindex, nofollow</span> is the correct staging setting. I am not counting it as a defect.
+    </div>
+    <p><strong>Highest-priority recommendations</strong></p>
+    <ul>
+      <li>Rebuild stat figures so the number stays on one line. Split words like “From” and “weeks” into the caption.</li>
+      <li>Shorten <span class="url">/contact/</span> to name, email, organization type, one need, a message, and the SMS consent.</li>
+      <li>Before production: add self-referencing canonicals, a real homepage <span class="url">og:image</span>, and turn indexing on only at launch. Keep noindex on this staging host.</li>
+    </ul>
+
+    <h2>2. What’s working</h2>
+    <p>These should stay.</p>
+    <ul>
+      <li><strong>The offer is concrete.</strong> The homepage H1 is about leads, calls, and revenue. Service pages lead with a price, a timeline, or a client result instead of a slogan. The City of Ulysses and A&amp;K case studies name the client and the number.</li>
+      <li><strong>One visual system.</strong> Black <span class="url">#080A0C</span>, paper white, one blue <span class="url">#027AB9</span>, one green <span class="url">#43AF48</span>, Instrument Sans. Interior pages feel like the same site as the homepage.</li>
+      <li><strong>Navigation is built for both pointer and keyboard.</strong> Desktop items are a link plus a separate menu button with <span class="url">aria-expanded</span>. The mobile menu is a <span class="url">details</span> element. Targets are about 44–52px. Escape closes an open menu.</li>
+      <li><strong>The logo strip is done correctly.</strong> It pauses on hover, it stops for <span class="url">prefers-reduced-motion</span>, and the duplicated set of logos is <span class="url">aria-hidden</span>. Logo images use empty alt because the organization name is real text next to the image.</li>
+      <li><strong>Forms are real forms.</strong> Labels are tied to inputs, email uses <span class="url">autocomplete="email"</span>, the honeypot is <span class="url">display: none</span>, and the SMS line says consent is not required to buy. Phone numbers are <span class="url">tel:</span> links. Email is <span class="url">mailto:</span>.</li>
+      <li><strong>Fewer stats already reflow.</strong> Strips with two or three figures switch to two or three columns, so Locations and Restaurants do not leave an empty fourth column.</li>
+      <li><strong>Staging is marked as staging.</strong> Every sampled page sends <span class="url">noindex, nofollow</span>. A missing URL returns HTTP 404 and the title “Page Not Found - Southwind Marketing.”</li>
+      <li><strong>Focus is visible.</strong> <span class="url">:focus-visible</span> uses a 3px outline in <span class="url">#3BA3DB</span>, which is about 7:1 on the dark background.</li>
+    </ul>
+
+    <h2>3. Design and user experience</h2>
+    <p>Overall the site looks like a finished agency site: strong type, generous space, and photography that supports the rural and civic story. The weakness is in a few components where a long string meets a large type size, and in pages that repeat the same action under a different name.</p>
+
+    <h3>Stat figures wrap at desktop</h3>
+    <p><strong>Where:</strong> <span class="url">/services/website-design/</span>, the “Results in numbers” strip. Same component on other templates.</p>
+    <p><strong>What I measured:</strong> at a 1440px viewport the figures are 70px type in a 313px column. “Under 2s” stays on one line. “From $5,500”, “8 to 14 weeks”, and “16 to 24 weeks” wrap to two lines. The same wrap is there at 1100px and at 830px. Homepage figures (“110+”, “100,000+”, “$2M+”, “50 states”) stay on one line at 1440px, so this is the phrase-length figures, not the whole homepage.</p>
+    <p><strong>Why it matters:</strong> this strip is the proof under the headline. When three of the four numbers break and one does not, the row looks unfinished. A city manager scanning “16 to 24 weeks” should read one figure, not a wrapped sentence in 70px type.</p>
+    <p><strong>Correction:</strong> put only the number in the large type. Move the qualifier into the caption. For example the second stat becomes <strong>$5,500</strong> with the caption “Starting price for a rural small business site, fixed scope.” Do the same for “8–14 weeks” and “16–24 weeks.” Check the same pattern on <span class="url">/solutions/</span> (“From $129”, “48 hours”, “1 invoice”) and <span class="url">/locations/oklahoma/</span> (“About 70%”).</p>
+
+    <h3>Contact page makes people scroll to a long form</h3>
+    <p><strong>Where:</strong> <span class="url">/contact/</span></p>
+    <p>The first screen is a headline and a “Send us a message” button that jumps to the form. The useful facts (Yukon, the phone number, “within one business day”) sit between the hero and the form. The form then asks for 15 services as individual checkboxes, plus “Other service”, before the required “How can we help?” field. Each checkbox row is styled at a 60px minimum height, so the list is most of a phone screen by itself.</p>
+    <p><strong>Correction:</strong> put the form on the first screen, beside the reply-time and phone. Replace the 15 checkboxes with one organization select and one “what do you need” select. The redesign sample covers this layout.</p>
+
+    <h3>The same action has too many names</h3>
+    <p>I found four promises for what is really two destinations.</p>
+    <table>
+      <thead><tr><th>Label</th><th>Goes to</th><th>Where I saw it</th></tr></thead>
+      <tbody>
+        <tr><td>Get a Free Consultation</td><td>/contact/</td><td>Homepage, service pages</td></tr>
+        <tr><td>Free Website Audit</td><td>/audit/</td><td>Homepage, service pages, case studies</td></tr>
+        <tr><td>Start a similar project / Start your project</td><td>/get-a-quote/</td><td>Case studies</td></tr>
+        <tr><td>Get started</td><td>/get-a-quote/</td><td>Southwind Connect</td></tr>
+        <tr><td>Get a free quote</td><td>/get-a-quote/</td><td>Blog article aside</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Correction:</strong> use “Get a Free Consultation” for <span class="url">/contact/</span> and “Free Website Audit” for <span class="url">/audit/</span> everywhere. Use “Get a quote” only next to a price, and send that one to <span class="url">/get-a-quote/</span>.</p>
+
+    <h3>Iowa page promises a local strategist the copy does not support</h3>
+    <p><strong>Where:</strong> <span class="url">/locations/iowa/</span></p>
+    <p>The hero button says “Talk to an Iowa strategist.” Further down, the map section says “We have no named Iowa client yet” and points at Kansas work. The honest sentence is the right one. The button overclaims.</p>
+    <p><strong>Correction:</strong> change the button to “Talk with Southwind about Iowa” and keep the Kansas proof labeled as Kansas.</p>
+
+    <h3>Other design notes</h3>
+    <ul>
+      <li>There is no breadcrumb on deep pages. On Website Design I had the menu and the logo, and no “Home / Services / Website Design” trail. Add one under the header on service, industry, location, case study, and blog templates.</li>
+      <li>The active item is not marked. On Website Design, nothing in the menu exposes <span class="url">aria-current="page"</span>.</li>
+      <li>Team portraits in <span class="url">team.css</span> stay grayscale until hover. A phone has no hover, so they stay gray. Show them in color, and keep a hover treatment if you want one on desktop.</li>
+      <li>Below 1024px the header “Get in touch” link is hidden and the Menu button takes over. That is fine, because the hero still has the two buttons. I would not add a second sticky bar.</li>
+    </ul>
+
+    <h2>4. Website functionality</h2>
+    <p>I opened the homepage, contact, audit, services, website design, SEO, ecommerce design, solutions, Southwind Connect, industries, city governments, restaurants, case studies, the Ulysses and A&amp;K studies, the blog index, one article, about, team, FAQ, reviews, portfolio, resources, privacy, terms, locations, Oklahoma, Iowa, the nonprofit discount, the AI facts page, and one address that should 404. I used the sitemap to see the full set: 79 pages and 152 posts. I did not open every post.</p>
+    <p>I did not submit a form, open wp-admin, or run a crawler against the host.</p>
+    <table>
+      <thead><tr><th>Check</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>Primary navigation and footer links in the sample</td><td>Resolve. Services, solutions, industries, work, about, contact, audit, and quote URLs return 200.</td></tr>
+        <tr><td>Unknown URL</td><td>HTTP 404, title “Page Not Found - Southwind Marketing.”</td></tr>
+        <tr><td>Homepage images that looked unloaded on first paint</td><td>They are lazy-loaded. Direct requests for the mural, gradients, and logo PNGs return 200. They are not broken files.</td></tr>
+        <tr><td>Contact form</td><td>Renders. Required fields include the message. Phone is optional. Honeypot is not visible. I stopped before submit so I would not create a fake lead.</td></tr>
+        <tr><td>Dropdowns</td><td>Buttons toggle <span class="url">aria-expanded</span>. CSS also opens the panel on hover and on <span class="url">:focus-within</span>.</td></tr>
+        <tr><td>Logo marquee</td><td>Runs, pauses on hover, and is still under reduced motion.</td></tr>
+      </tbody>
+    </table>
+    <p>I did not find a broken journey in the templates I opened. The functional issues are the long contact form and the inconsistent button labels above, not dead links.</p>
+
+    <h2>5. Technical and SEO review</h2>
+    <p>The staging host is intentionally out of the index. <span class="url">robots</span> meta is <span class="url">noindex, nofollow</span> on every page I saved. That is correct. <span class="url">robots.txt</span> disallows <span class="url">/wp-admin/</span> except admin-ajax, and it publishes a sitemap. Crawlers can still fetch URLs, and the meta tag tells them not to index. Leave that as it is until launch day.</p>
+
+    <h3>Titles, descriptions, canonicals, share cards</h3>
+    <p>Titles and descriptions are written by a person and are mostly the right length. Examples: homepage title 51 characters, description 144. Website Design title 53, description 146. A few sit outside the range I would ship:</p>
+    <ul>
+      <li>Blog post title “Church Marketing Strategies for Small Teams: Follow Up Within 72 Hours” is 70 characters. Trim the front so the useful words survive in Google.</li>
+      <li>“Portfolio | Southwind Marketing” is 31 characters and says less than the rest of the system. Use the H1 idea: websites, brands, and programs with a result.</li>
+      <li>No page I checked has a <span class="url">rel=canonical</span>. The homepage also has no <span class="url">og:image</span>. I confirmed both in the live DOM. Website Design does have an <span class="url">og:image</span>, and it is the decorative swirl, <span class="url">swirl-frame.webp</span>, with alt “Website Design.”</li>
+    </ul>
+    <p><strong>Correction, for production only:</strong> one self-referencing canonical per URL, a homepage share image of the real hero or the logo on a designed card (1200×630), and page-specific share images where the page has a real photo. Switch <span class="url">noindex</span> off only on the production host.</p>
+
+    <h3>Headings, links, URLs</h3>
+    <ul>
+      <li>Sampled pages have one H1. The website design outline steps H1 → H2 → H3 without skipping a level. Footer column titles are also H2s, which I cover under accessibility.</li>
+      <li>URLs are short, lowercase, and hyphenated (<span class="url">/services/website-design/</span>, <span class="url">/case-studies/city-of-ulysses-civicplus-replacement/</span>).</li>
+      <li>Internal links in the header, footer, and the sections I opened point at real pages. Case-study stats link to the study they cite.</li>
+      <li>There is no breadcrumb trail and no HTML sitemap for visitors. The XML sitemap exists for crawlers. A breadcrumb is the visitor-facing fix.</li>
+    </ul>
+
+    <h3>Performance and images</h3>
+    <ul>
+      <li>The homepage HTML response is 292,558 bytes uncompressed. The theme CSS is inlined in the document, so a visitor downloads that CSS again on the next page. Move the shared CSS to one file with long cache headers. Keep critical hero CSS inline if you need it.</li>
+      <li>Hero and content photos are WebP with <span class="url">srcset</span>. The homepage hero uses <span class="url">fetchpriority="high"</span>. That part is in good shape.</li>
+      <li>On the pages I measured in the browser, the homepage transferred about 1.1 MB of subresources after HTML, with the hero WebP as the largest image. That is acceptable. The repeated CSS is the part I would fix.</li>
+    </ul>
+
+    <h3>Configuration I could see without touching the admin</h3>
+    <ul>
+      <li>The homepage response is served by nginx, cached by Cloudways (Breeze, <span class="url">X-Cache: HIT</span>). It did not include <span class="url">Strict-Transport-Security</span>, <span class="url">Content-Security-Policy</span>, <span class="url">X-Content-Type-Options</span>, or <span class="url">Referrer-Policy</span>. Add those at the server before launch. I am flagging the missing headers, not a vulnerability I tried to use.</li>
+      <li>The generator meta reports WordPress 7.1.3. Remove it.</li>
+      <li>The HTML loads Google Tag Manager <span class="url">GTM-TRTC447K</span> and Meta’s <span class="url">fbevents.js</span>. If this container is the live one, every staging visit lands in production analytics. Point staging at a separate container, or pause the tags, until cutover.</li>
+    </ul>
+
+    <h2>6. Accessibility</h2>
+    <p>The base is ahead of most agency sites I review. These are the gaps I would still file.</p>
+    <table>
+      <thead><tr><th>Item</th><th>Evidence</th><th>Change</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Logo name announced twice</td>
+          <td>The home link is named “Southwind Marketing, home.” The SVG inside it is <span class="url">role="img"</span> with <span class="url">aria-label="Southwind Marketing"</span>.</td>
+          <td>Set <span class="url">aria-hidden="true"</span> on the SVG. The link label is enough. Same pattern in the footer logo.</td>
+        </tr>
+        <tr>
+          <td>Footer headings</td>
+          <td>Column labels (Services, Solutions, Industries, Locations, Company, Work &amp; Insights) are H2s, at the same level as the page sections.</td>
+          <td>Change them to paragraphs with the existing footer class. Leave one H2 only if the footer needs a heading, such as “Footer.”</td>
+        </tr>
+        <tr>
+          <td>Current page</td>
+          <td>Website Design exposes no <span class="url">aria-current</span>.</td>
+          <td>Add <span class="url">aria-current="page"</span> on the matching header and footer link.</td>
+        </tr>
+        <tr>
+          <td>Team photos on touch</td>
+          <td><span class="url">filter: grayscale(1)</span> until <span class="url">:hover</span>.</td>
+          <td>Default to color. Hover can still zoom or lift the card.</td>
+        </tr>
+        <tr>
+          <td>Decorative versus informative images</td>
+          <td>Hero swirls and case-study backgrounds use empty alt, which is right while text on top carries the meaning. Logo alts are empty because the name is beside the image. Content photos I checked, such as “The Southwind team on site with a client,” have a real alt.</td>
+          <td>Keep that rule. When a case-study background is the only description of a screenshot, give that image a short alt and don’t hide it.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Contrast on the tokens I calculated is in range for the pairs that carry body text. Examples: green <span class="url">#43AF48</span> on <span class="url">#080A0C</span> is about 7.1:1 (the “Get in touch” link). Blue-on-dark <span class="url">#3BA3DB</span> on <span class="url">#080A0C</span> is about 7.0:1. Muted text <span class="url">#5E5E5E</span> on white is about 6.5:1. White on the blue button <span class="url">#027AB9</span> is about 4.7:1, which clears 4.5:1 for the button label. I would not open a contrast ticket on those tokens.</p>
+    <p>Keyboard: skip link is present, focus outline is visible, menu buttons are real buttons, and the reduced-motion logo strip is in place. I did not complete a full tab pass of every template.</p>
+
+    <h2>7. Redesign recommendations</h2>
+    <p>I would change the contact page, because that is where the visit either becomes a lead or dies. The rest of the system is strong enough to leave alone.</p>
+    <p><strong>What changes</strong></p>
+    <ul>
+      <li>Remove the “Send us a message” jump. The form is the page.</li>
+      <li>Desktop is two columns. Left: headline, one-business-day promise, phone, location, and three short steps (we reply, we say what we’d do first, you get a fixed scope). Right: the form.</li>
+      <li>The form keeps the underlined fields and the black page, so it still looks like Southwind. It drops the 15 checkboxes. Organization is a select (business, city or school, chamber or EDO, nonprofit). Need is a select (website, SEO, ads and social, CRM, not sure yet). Then the message, the existing SMS consent, and one blue “Send message” button.</li>
+      <li>Phone stays a tap target at the top of the left column, not a line under the email address.</li>
+    </ul>
+    <p><strong>What this improves:</strong> a mayor or a shop owner can see how fast you reply and can finish the form without decoding the service catalog. Sales still learns the organization type and the need. The long catalog remains on <span class="url">/services/</span>, which is the right place for it.</p>
+    <p>The stat strip is a component fix, not a new layout. I would not redesign the homepage. The headline, the two buttons, and the four short figures are doing their job.</p>
+    <p>A desktop sample of the contact page is in <span class="url">contact-redesign-sample.html</span> in this folder. Rebuild that frame in Figma and share the view link. Notes for the frame are in section 9.</p>
+
+    <h2>8. Prioritized action plan</h2>
+    <table>
+      <thead><tr><th>Sev.</th><th>Issue</th><th>Where</th><th>Correction</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="sev">Critical</td>
+          <td colspan="3">None in the templates I tested. Pages load, primary links resolve, the 404 is a real 404, and the contact form renders with labels. I am not inflating visual issues into blockers.</td>
+        </tr>
+        <tr>
+          <td class="sev high">High</td>
+          <td>Proof numbers wrap to two lines, so the row no longer shares one baseline.</td>
+          <td>/services/website-design/ at 830, 1100, and 1440px. Also check /solutions/ and /locations/oklahoma/.</td>
+          <td>Large type is the number only. Qualifiers move to the caption. Re-check at 1440 and at 768.</td>
+        </tr>
+        <tr>
+          <td class="sev high">High</td>
+          <td>Contact form is a 15-item service list before the message, below a hero that only scrolls.</td>
+          <td>/contact/</td>
+          <td>Two-column first screen. Organization select, need select, message, consent. See the redesign sample.</td>
+        </tr>
+        <tr>
+          <td class="sev high">High</td>
+          <td>No canonical. Homepage has no og:image. Interior share image is a decorative swirl.</td>
+          <td>Homepage DOM; /services/website-design/ uses swirl-frame.webp.</td>
+          <td>Add canonicals and a real 1200×630 share image on the production host. Leave noindex on staging.</td>
+        </tr>
+        <tr>
+          <td class="sev med">Medium</td>
+          <td>Primary buttons describe one action four different ways.</td>
+          <td>Home, case studies, Connect, blog asides.</td>
+          <td>Standardize on Consultation, Audit, and Quote-only-next-to-a-price.</td>
+        </tr>
+        <tr>
+          <td class="sev med">Medium</td>
+          <td>No breadcrumbs. Current page is not marked.</td>
+          <td>Service, case study, blog, location templates.</td>
+          <td>Add a breadcrumb. Set aria-current="page" in the header and footer.</td>
+        </tr>
+        <tr>
+          <td class="sev med">Medium</td>
+          <td>“Talk to an Iowa strategist” conflicts with “no named Iowa client yet.”</td>
+          <td>/locations/iowa/</td>
+          <td>Retitle the button. Keep the Kansas proof labeled as Kansas. Review the other state pages for the same pattern.</td>
+        </tr>
+        <tr>
+          <td class="sev med">Medium</td>
+          <td>Security headers are absent on the HTML response. Staging runs the tag manager and Meta pixel.</td>
+          <td>Homepage response headers. GTM-TRTC447K.</td>
+          <td>Add HSTS, nosniff, a referrer policy, and a CSP at nginx. Use a staging analytics container until launch.</td>
+        </tr>
+        <tr>
+          <td class="sev med">Medium</td>
+          <td>About 293 KB of HTML per page because CSS is inlined.</td>
+          <td>Homepage Content-Length 292558.</td>
+          <td>Serve one cached stylesheet. Keep only the hero-critical rules inline.</td>
+        </tr>
+        <tr>
+          <td class="sev low">Low</td>
+          <td>Logo SVG repeats the link name.</td>
+          <td>Header and footer logo.</td>
+          <td>aria-hidden="true" on the SVG.</td>
+        </tr>
+        <tr>
+          <td class="sev low">Low</td>
+          <td>Footer column titles are H2s.</td>
+          <td>Every page footer.</td>
+          <td>Change those six labels to paragraphs.</td>
+        </tr>
+        <tr>
+          <td class="sev low">Low</td>
+          <td>A few titles are too long or too thin.</td>
+          <td>Church marketing post (70). Portfolio (31).</td>
+          <td>Bring titles to about 50–60 characters. Match the stronger service titles.</td>
+        </tr>
+        <tr>
+          <td class="sev low">Low</td>
+          <td>Footer label “AI instructions” is insider language.</td>
+          <td>Footer, /ai-instructions/</td>
+          <td>Keep the page. Label it “Company facts” for visitors.</td>
+        </tr>
+        <tr>
+          <td class="sev low">Low</td>
+          <td>Team photos stay gray without a hover.</td>
+          <td>/team/</td>
+          <td>Show color by default.</td>
+        </tr>
+        <tr>
+          <td class="sev low">Low</td>
+          <td>Generator meta exposes the WordPress version.</td>
+          <td>Document head.</td>
+          <td>Remove the generator tag.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>9. Visual design sample</h2>
+    <p><strong>Page:</strong> Contact. <strong>Frame:</strong> desktop, 1440 wide.</p>
+    <p><strong>Why this page:</strong> the homepage already has a clear headline, two actions, and proof. The contact page spends the first screen on a button that only scrolls, then asks for the full service list. That is the page a redesign actually improves.</p>
+    <p><strong>Decisions in the sample</strong></p>
+    <ul>
+      <li>Same brand colors and the same underlined fields, so development can reuse the current form CSS.</li>
+      <li>Left column carries trust (where you are, how fast you reply, what happens next). Right column is the work.</li>
+      <li>Five fields instead of a checklist. The service catalog stays on the services page.</li>
+      <li>One button, “Send message,” in the existing blue. The phone number is a second, quieter path, not a competing button.</li>
+    </ul>
+    <p>Open <span class="url">contact-redesign-sample.html</span> in a browser at full width and rebuild it in Figma as one frame named “Contact — redesign.” Share the file as “anyone with the link can view,” and put that link in the application.</p>
+
+    <h2>Scope and method</h2>
+    <p>Read-only. I used the browser, view-source on representative templates, response headers, and the public sitemap. I did not log in, did not change content, and did not submit forms. Image URLs I checked with a single HEAD request returned 200. Time spent on this written audit, including the contact sample: fill in your actual hours after you review the pages yourself and build the Figma frame.</p>
+    <p class="foot">Eduard Joseph Magno · edmagno055@gmail.com · https://eduard055.github.io/Eduard-Magno-Portfolio/</p>
+  </div>
+</body>
+</html>
