@@ -566,82 +566,6 @@
       text-transform: uppercase;
     }
 
-    /* QA */
-    .qa-grid {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 36px;
-      margin-top: 36px;
-    }
-
-    .practice-list { list-style: none; border-top: 1px solid var(--line); }
-
-    .practice-list li {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--line);
-      font-weight: 650;
-    }
-
-    .practice-list span {
-      color: var(--faint);
-      font-size: 0.82rem;
-      letter-spacing: 0.08em;
-    }
-
-    .note {
-      margin-top: 22px;
-      padding: 18px;
-      border-left: 3px solid var(--accent);
-      background: #121212;
-      color: var(--muted);
-    }
-
-    .note strong { color: var(--text); }
-
-    .case-list { display: grid; gap: 12px; }
-
-    .case {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 18px 18px 8px;
-      background: #101010;
-    }
-
-    .case-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: baseline;
-      margin-bottom: 8px;
-    }
-
-    .case h3 { font-size: 1.05rem; letter-spacing: -0.02em; }
-
-    .case-type {
-      color: var(--accent);
-      font-size: 0.75rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .case dl { display: grid; gap: 8px; margin-bottom: 12px; }
-
-    .case div { display: grid; grid-template-columns: 110px 1fr; gap: 10px; }
-    .case dt { color: var(--faint); font-size: 0.82rem; font-weight: 700; }
-    .case dd { color: var(--muted); font-size: 0.95rem; }
-
-    .case-status {
-      color: var(--accent);
-      font-weight: 800;
-      font-size: 0.82rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
     /* Experience */
     .jobs { margin-top: 36px; border-top: 1px solid var(--line); }
 
@@ -767,7 +691,6 @@
       .hero-grid,
       .about-layout,
       .skill-grid,
-      .qa-grid,
       .project,
       .about-list li,
       .job {
@@ -810,8 +733,6 @@
 
       .nav-links.open a { padding: 14px 12px; }
 
-      .case div { grid-template-columns: 1fr; gap: 2px; }
-
       .section { padding: 80px 0; }
     }
 
@@ -837,7 +758,6 @@
       <nav class="nav-links" id="nav-links" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
-        <a href="#qa">QA</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -1074,110 +994,6 @@
               <img src="./assets/nexride.jpg" alt="Nexride ride booking screen" width="1200" height="750" loading="lazy">
             </div>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="qa">
-      <div class="container reveal">
-        <p class="eyebrow">Quality assurance</p>
-        <h2 class="section-title">Testing is part of the build</h2>
-        <p class="lead">I use testing to see whether a feature does what it should, whether the right person can use it, and whether a fix stays fixed. Development and QA are two sides of the same work.</p>
-        <div class="qa-grid">
-          <div>
-            <ol class="practice-list">
-              <li>Test case documentation <span>01</span></li>
-              <li>Functional testing <span>02</span></li>
-              <li>Login and authentication testing <span>03</span></li>
-              <li>Form validation <span>04</span></li>
-              <li>Booking workflow testing <span>05</span></li>
-              <li>User permission testing <span>06</span></li>
-              <li>Data persistence testing <span>07</span></li>
-              <li>Bug reporting <span>08</span></li>
-              <li>Regression testing <span>09</span></li>
-            </ol>
-            <div class="note">
-              <p><strong>SafetyVoice and TextileTrack.</strong> I have supported quality assurance on both products: checking behavior, writing up issues, and retesting after changes. Details stay high-level here so internal product information stays private.</p>
-            </div>
-          </div>
-          <div>
-            <p class="eyebrow">Illustrative examples</p>
-            <p class="lead" style="margin-bottom: 16px;">These cases show the format I use. They are not records from a real test run, and they are not findings from SafetyVoice, TextileTrack, or any client product.</p>
-            <div class="case-list">
-              <article class="case">
-                <div class="case-top">
-                  <h3>Sign in with a valid account</h3>
-                  <p class="case-type">Login</p>
-                </div>
-                <dl>
-                  <div><dt>Steps</dt><dd>Open the login screen, enter a known account, and submit.</dd></div>
-                  <div><dt>Expected</dt><dd>The account opens on the home screen for that role.</dd></div>
-                  <div><dt>Actual</dt><dd>Not recorded. This field is where a real run would be written.</dd></div>
-                  <div><dt>Status</dt><dd class="case-status">Example only</dd></div>
-                </dl>
-              </article>
-              <article class="case">
-                <div class="case-top">
-                  <h3>Empty required field on a form</h3>
-                  <p class="case-type">Form validation</p>
-                </div>
-                <dl>
-                  <div><dt>Steps</dt><dd>Leave a required field blank and try to submit.</dd></div>
-                  <div><dt>Expected</dt><dd>The form stays put and names the field that needs a value.</dd></div>
-                  <div><dt>Actual</dt><dd>Not recorded. This field is where a real run would be written.</dd></div>
-                  <div><dt>Status</dt><dd class="case-status">Example only</dd></div>
-                </dl>
-              </article>
-              <article class="case">
-                <div class="case-top">
-                  <h3>Complete a booking</h3>
-                  <p class="case-type">Booking workflow</p>
-                </div>
-                <dl>
-                  <div><dt>Steps</dt><dd>Choose a time, confirm the details, and save the booking.</dd></div>
-                  <div><dt>Expected</dt><dd>The booking appears in the schedule with the selected time.</dd></div>
-                  <div><dt>Actual</dt><dd>Not recorded. This field is where a real run would be written.</dd></div>
-                  <div><dt>Status</dt><dd class="case-status">Example only</dd></div>
-                </dl>
-              </article>
-              <article class="case">
-                <div class="case-top">
-                  <h3>Open an admin screen as a standard user</h3>
-                  <p class="case-type">Permissions</p>
-                </div>
-                <dl>
-                  <div><dt>Steps</dt><dd>Sign in without admin access and open an admin route.</dd></div>
-                  <div><dt>Expected</dt><dd>The admin screen stays unavailable for that account.</dd></div>
-                  <div><dt>Actual</dt><dd>Not recorded. This field is where a real run would be written.</dd></div>
-                  <div><dt>Status</dt><dd class="case-status">Example only</dd></div>
-                </dl>
-              </article>
-              <article class="case">
-                <div class="case-top">
-                  <h3>Saved data after a refresh</h3>
-                  <p class="case-type">Data persistence</p>
-                </div>
-                <dl>
-                  <div><dt>Steps</dt><dd>Save a record, refresh the page, and look for that record again.</dd></div>
-                  <div><dt>Expected</dt><dd>The saved record is still there.</dd></div>
-                  <div><dt>Actual</dt><dd>Not recorded. This field is where a real run would be written.</dd></div>
-                  <div><dt>Status</dt><dd class="case-status">Example only</dd></div>
-                </dl>
-              </article>
-              <article class="case">
-                <div class="case-top">
-                  <h3>Recheck a bug after a fix</h3>
-                  <p class="case-type">Regression</p>
-                </div>
-                <dl>
-                  <div><dt>Steps</dt><dd>Repeat the original steps from the bug report on the fixed build.</dd></div>
-                  <div><dt>Expected</dt><dd>The reported failure no longer happens, and nearby flows still work.</dd></div>
-                  <div><dt>Actual</dt><dd>Not recorded. This field is where a real run would be written.</dd></div>
-                  <div><dt>Status</dt><dd class="case-status">Example only</dd></div>
-                </dl>
-              </article>
-            </div>
-          </div>
         </div>
       </div>
     </section>
